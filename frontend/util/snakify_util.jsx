@@ -3,6 +3,7 @@
 // If value === object, call snakifyObject with value
 // const object2 = { user: { emailAddress: { test: "test"}, password: "password", displayName: { firstName: "Daniel", lastName: "Cho"} }, sessionKey: { test: "test"}}
 //const object1 = { user:{ email: "test", password: "password", displayName: "test" }}
+// test
 
 const snakifyObject = (oldObject) => {
   const newObject = {}
