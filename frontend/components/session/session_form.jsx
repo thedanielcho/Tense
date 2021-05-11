@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import snakifyObject from '../../util/snakify_util'
 class SessionForm extends React.Component{
   constructor(props){
@@ -10,6 +10,7 @@ class SessionForm extends React.Component{
       displayName: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this)
   }
 
   handleInput(type) {
@@ -27,33 +28,65 @@ class SessionForm extends React.Component{
     this.props.processForm(railsReadyUser);
   }
 
+  handleDemo(){
+    this.props.demoLogin();
+  }
+
   componentWillUnmount(){
     this.props.removeErrors();
   }
 
   render(){
-    let link = (this.props.formType === "login") ? "signup" : "login"
+    let link = (this.props.formType === "Login") ? "Signup" : "Login"
+    let header = (this.props.formType === "Login") ? "Log in to TENSE" : "Sign up for TENSE"
     return(
-      <div>
-        <h1>{this.props.formType}</h1>
-        <Link to={`/${link}`}>{link}</Link>
+      <div className="session-form-container">
+        <NavLink to={"/"} className="logo">
+          <img src={window.tempIcon} alt="temp icon" />
+          <h2>TENSE</h2>
+        </NavLink>
+        <h1>{header}</h1>
+
+        <NavLink to={`/${link}`} className="redirect">Click to {link} instead</NavLink> 
+
         <p>{this.props.errors.session.join(". ")}</p>
-        <form onSubmit={this.handleSubmit}>
-          <label>Email:
-            <input type="text" value={this.state.email} onChange={this.handleInput("email")} />
-          </label>
-          {(this.props.formType === "signup") ? 
-            <label>Display Name:
-              <input type="displayName" value={this.state.displayName} onChange={this.handleInput("displayName")} />
-            </label> : 
-            <></>
+
+        <form onSubmit={this.handleSubmit} className="session-form">
+          <label htmlFor="email">Email address:</label>
+          <input
+            id="email"
+            type="text"
+            value={this.state.email}
+            onChange={this.handleInput("email")}
+            placeholder="name@work-email.com"
+          />
+          
+
+          {(this.props.formType === "Signup") ? 
+            <>
+            <label htmlFor="displayName">Display Name:</label>
+            <input
+              id="displayName"
+              type="displayName"
+              value={this.state.displayName}
+              onChange={this.handleInput("displayName")}
+              placeholder="Your name"
+            />
+            </> : <></>
           } 
           
-          <label>Password:
-            <input type="password" value={this.state.password} onChange={this.handleInput("password")} />
-          </label>
+          <label htmlFor="password">Password:</label>
+          <input
+            id="password"
+            type="password"
+            value={this.state.password}
+            onChange={this.handleInput("password")}
+            placeholder="Your password"  
+          />
+          
           <button type="submit">{this.props.formType}</button>
         </form>
+        <button onClick={this.handleDemo}>Demo Login</button>
       </div>
     )
   }

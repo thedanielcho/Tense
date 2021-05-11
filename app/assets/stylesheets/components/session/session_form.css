@@ -1,0 +1,70 @@
+.session-form-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.session-form{
+  padding: 10px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  width: 400px;
+}
+
+.session-form > input {
+  padding: 13px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid rgb(87, 87, 87);
+  font-size: 17px;
+}
+
+.session-form-container > .logo{
+  display: flex;
+  align-items: center;
+  font-size: 40px;
+  font-weight: 700;
+  padding: 20px;
+  color: black;
+  text-decoration: none;
+}
+
+.session-form-container > .logo > img {
+  padding-right: 15px;
+  height: 50px;
+}
+
+.session-form-container > h1 {
+  font-size: 35px;
+  font-weight: 700;
+  padding: 20px;
+}
+
+.session-form-container > .redirect {
+  font-style: italic;
+}
+
+.session-form > label {
+  padding-bottom: 8px;
+  font-weight: 500;
+}
+
+button {
+  font-size: 15px;
+  font-weight: 700;
+  width: 400px;
+  height: 40px;
+  background-color: rgb(139, 89, 146);
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover{
+  background-color: rgb(154, 112, 194);
+  cursor: pointer;
+}

@@ -43,5 +43,9 @@ class User < ApplicationRecord
     self.session_token
   end
 
+  def valid_email?
+
+  end
+
 
 end

@@ -41,9 +41,21 @@ export const login = (user) => (dispatch) => {
   APIUtils.login(user)
     .then(user => dispatch(receiveCurrentUser(user)))
     .fail(errors => dispatch(receiveErrors(errors))) 
-)}
+  )
+}
 
 export const logout = () => (dispatch) => (
   APIUtils.logout()
     .then(() => dispatch(logoutCurrentUser()))
 )
+
+export const demoLogin = () => (dispatch) => {
+  const demoUser = {
+    email: "demo@mail.com",
+    display_name: "demo user",
+    password: "password"}
+  return(
+    APIUtils.login(demoUser)
+    .then((user) => dispatch(receiveCurrentUser(user)))
+  )
+}
