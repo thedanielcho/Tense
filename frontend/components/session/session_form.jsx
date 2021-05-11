@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import snakifyObject from '../util/snakify_util'
+import snakifyObject from '../../util/snakify_util'
 class SessionForm extends React.Component{
   constructor(props){
     super(props);
@@ -25,6 +25,10 @@ class SessionForm extends React.Component{
     const user = Object.assign({}, this.state);
     let railsReadyUser = snakifyObject(user)
     this.props.processForm(railsReadyUser);
+  }
+
+  componentWillUnmount(){
+    this.props.removeErrors();
   }
 
   render(){
