@@ -1,0 +1,109 @@
+.splash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  font-size: 15px;
+  font-weight: 500;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.splash {
+  background-color: rgb(139, 89, 146);
+  display: flex;
+  flex-direction: column;
+}
+
+.left-nav > .logo{
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 700;
+  padding: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.left-nav > .logo > img {
+  padding-right: 15px;
+  height: 40px;
+}
+
+.right-nav {
+  display: flex;
+  align-items: center;
+}
+
+.right-nav > .login {
+  text-decoration: none;
+  color: white;
+  padding-right: 15px;
+}
+
+.right-nav > .login:hover {
+  text-decoration: underline;
+}
+
+.right-nav button {
+  width: 150px;
+  margin-left: 15px;
+  border: 1px solid white;
+  font-size: 15px;
+  font-weight: 700;
+  height: 40px;
+  background-color: rgb(139, 89, 146);
+  color: white;
+  border-radius: 5px;
+}
+
+.right-nav > .demo {
+  background-color: white;
+  color: rgb(139, 89, 146);
+}
+
+.right-nav button:hover {
+  border: 3px solid;
+}
+
+.splash-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(139, 89, 146);
+  align-items: center;
+  margin: 150px;
+}
+
+.splash-body > h1 {
+
+  font-size: 50px;
+  
+  font-weight: 700;
+  color: white;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  text-align: center;
+  line-height: 60px;
+}
+
+.splash-body > h1 > span {
+  color: rgb(219, 195, 56);
+}
+
+.splash-body button {
+  width: 200px;
+  margin-left: 15px;
+  border: 1px solid white;
+  font-size: 15px;
+  font-weight: 700;
+  height: 70px;
+  background-color: rgb(139, 89, 146);
+  color: white;
+  border-radius: 5px;
+  margin: 25px;
+}
+
+
+.splash-body button:hover {
+  border: 3px solid;
+}

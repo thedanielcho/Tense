@@ -39,6 +39,13 @@ class SessionForm extends React.Component{
   render(){
     let link = (this.props.formType === "Login") ? "Signup" : "Login"
     let header = (this.props.formType === "Login") ? "Log in to TENSE" : "Sign up for TENSE"
+
+    let errors = this.props.errors.session.map((error, index) => {
+      return (
+        <li key={index}>{error}</li>
+      )
+    })
+
     return(
       <div className="session-form-container">
         <NavLink to={"/"} className="logo">
@@ -48,8 +55,6 @@ class SessionForm extends React.Component{
         <h1>{header}</h1>
 
         <NavLink to={`/${link}`} className="redirect">Click to {link} instead</NavLink> 
-
-        <p>{this.props.errors.session.join(". ")}</p>
 
         <form onSubmit={this.handleSubmit} className="session-form">
           <label htmlFor="email">Email address:</label>
@@ -84,6 +89,10 @@ class SessionForm extends React.Component{
             placeholder="Your password"  
           />
           
+          <ul className="errors-list">
+            {errors}
+          </ul>
+
           <button type="submit">{this.props.formType}</button>
         </form>
         <button onClick={this.handleDemo}>Demo Login</button>
