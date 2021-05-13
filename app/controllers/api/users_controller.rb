@@ -1,5 +1,11 @@
 class Api::UsersController < ApplicationController
 
+  def index 
+    channel = Channel.find(params[:channel_id])
+    @users = channel.users
+    render :index
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save

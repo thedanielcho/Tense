@@ -7,12 +7,10 @@ class Channel extends React.Component{
   }
 
   handleLogout(){
-    debugger
     this.props.logout()
   }
 
   render(){
-    debugger
     return(
       <div>
         <h2>This is where the channel would live</h2>

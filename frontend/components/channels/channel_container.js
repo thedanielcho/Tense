@@ -4,7 +4,6 @@ import Channel from "./channel"
 
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  debugger
   return {
     logout: () => dispatch(logout()),
   }

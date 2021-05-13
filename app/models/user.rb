@@ -6,6 +6,20 @@ class User < ApplicationRecord
   validates :password, length: {minimum:6, allow_nil:true}
   after_initialize :ensure_session_token
 
+  has_many :owned_channels,
+  foreign_key: :admin_id,
+  class_name: :Channel
+
+  has_many :memberships,
+  foreign_key: :user_id,
+  class_name: :Membership,
+  dependent: :destroy
+
+  has_many :channels,
+  through: :memberships,
+  source: :memberable,
+  source_type: "Channel"
+
   attr_reader :password
   # FIGVAPER
 
