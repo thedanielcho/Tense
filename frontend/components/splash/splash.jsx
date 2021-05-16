@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, Redirect } from 'react-router-dom';
 import SplashBody from './splash_body';
 import SplashFooter from './splash_footer';
 import SplashHeader from './splash_header';
@@ -11,7 +11,7 @@ class Splash extends React.Component{
   }
 
   handleDemo(){
-    this.props.demoLogin()
+    this.props.demoLogin();
   }
 
   render(){

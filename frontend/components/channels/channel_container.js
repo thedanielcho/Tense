@@ -1,12 +1,22 @@
 import { connect } from "react-redux"
+import { requestAllChannels } from "../../actions/channel_actions"
 import { logout } from "../../actions/session_actions"
+import { requestAllUsers } from "../../actions/user_actions"
 import Channel from "./channel"
 
-
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    logout: () => dispatch(logout()),
+    channel: state.entities.channels[ownProps.match.params.channelId],
+    users: Object.values(state.entities.users),
+    pathName: ownProps.history.location.pathname
   }
 }
 
-export default connect(null, mapDispatchToProps)(Channel)
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    requestAllChannels: () => dispatch(requestAllChannels()),
+    requestAllUsers: (channelId) => dispatch(requestAllUsers(channelId))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Channel)

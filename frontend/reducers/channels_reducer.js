@@ -2,15 +2,17 @@ import { RECEIVE_ALL_CHANNELS, RECEIVE_CHANNEL, REMOVE_CHANNEL } from "../action
 
 const channelsReducer = (state = {}, action) => {
   Object.freeze(state);
+  let newState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_ALL_CHANNELS:
-      debugger
-      return Object.assign({}, state, action.channels)
+      action.channels.forEach((channel)=>{
+        newState[channel.id] = channel
+      })
+      return newState;
     case RECEIVE_CHANNEL:
       const newChannel = { [action.channel.id]: action.channel }
       return Object.assign({}, state, newChannel)
     case REMOVE_CHANNEL:
-      let newState = Object.assign({}, state);
       delete newState[action.channelId];
       return newState;
     default:
