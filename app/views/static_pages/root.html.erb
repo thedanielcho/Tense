@@ -6,7 +6,7 @@
     ).html_safe %>
     window.currentChannels = <%= render(
       "api/channels/channels.json.jbuilder",
-      channels: current_user.channels
+      channels: Channel.all.where(public?: true)
     ).html_safe %>
   </script>
 <% end %>

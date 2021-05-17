@@ -1,5 +1,11 @@
 class Api::MembershipsController < ApplicationController
 
+  def index
+    channel = Channel.find(params[:channel_id])
+    @memberships = Membership.all.where(memberable_id: channel.id)
+    render :index
+  end
+
   def create
     if params[:channel_id]
       channel = Channel.find(params[:channel_id])

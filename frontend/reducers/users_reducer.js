@@ -10,11 +10,15 @@ const usersReducer = (state= {}, action) => {
     case RECEIVE_CURRENT_USER:
       return Object.assign({}, state, {[action.user.id]: action.user});
     case RECEIVE_ALL_USERS:
-      let refreshedState = {}
+      // let refreshedState = {}
+      // action.users.forEach((user) => {
+      //   refreshedState[user.id] = user
+      // })
+      // return refreshedState
       action.users.forEach((user) => {
-        refreshedState[user.id] = user
+        newState[user.id] = user
       })
-      return refreshedState
+      return newState;
     case RECEIVE_USER:
       return Object.assign({}, state, {[action.user.id]: action.user});
     case REMOVE_USER:

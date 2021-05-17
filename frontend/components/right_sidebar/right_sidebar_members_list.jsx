@@ -1,13 +1,15 @@
 import React from 'react'
 
 const RightSidebarMembersList = (props) => {
+  debugger
   return (
     <ul className="members-list">
-      {props.users.map((user)=>{
-        return(
-          <li key={user.id}>{user.displayName}</li>
-        )
-      })}
+      {props.members.map((member)=>{
+          return(
+            <li key={member.id}>{member.displayName}</li>
+          )
+        }
+      )}
     </ul>
   )
 }

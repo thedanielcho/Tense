@@ -5,10 +5,16 @@ import { faUserPlus, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 
 class ChannelMainHeader extends React.Component{
 
+  componentDidMount(){
+
+  }
+
   componentDidUpdate(){
+
   }
 
   render(){
+
     let redirectPath = (this.props.pathName.includes('sidebar')) ?
     `/channel/${this.props.channel.id}`
     : `/channel/${this.props.channel.id}/sidebar`;
@@ -19,7 +25,7 @@ class ChannelMainHeader extends React.Component{
       <header>
         <h1>#{this.props.channel.name}</h1>
         <ul>
-          <li>Members: {Object.keys(this.props.users).length}</li>
+          <li>Members: {Object.keys(this.props.memberships).length}</li>
           <li>
             <FontAwesomeIcon icon={faUserPlus} />
           </li>

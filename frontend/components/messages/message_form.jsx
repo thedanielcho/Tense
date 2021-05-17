@@ -4,7 +4,16 @@ import { faCaretSquareRight } from '@fortawesome/free-solid-svg-icons'
 
 class MessageForm extends React.Component{
 
+  componentDidMount(){
+
+  }
+
+  componentDidUpdate(){
+
+  }
+
   render(){
+
     return(
       <form className="message-form">
         <input type="text" id="message" placeholder={`Send a message to ${this.props.channel.name}`} />

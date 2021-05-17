@@ -12,3 +12,11 @@ export const destroyMembership = (membershipId) => {
     url: `/api/memberships/${membershipId}`,
   })
 }
+
+export const fetchMemberships = (channelId) => {
+
+  return $.ajax({
+    method: "GET",
+    url: `/api/channels/${channelId}/memberships`
+  })
+}

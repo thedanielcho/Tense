@@ -15,11 +15,11 @@ class LeftSidebar extends React.Component{
     let splitPath = this.props.pathName.split("/");
     splitPath[2] = channelId;
     let redirectPath = splitPath.join("/");
-    debugger
+
     this.props.history.push(redirectPath);
-    debugger
+
     this.props.requestAllUsers(channelId);
-    debugger
+    this.props.requestMemberships(channelId)
    }
 
   render(){

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const RightSidebarAbout = (props) => {
-  debugger
+
   return (
     <ul className="about-list">
       <li className="description">

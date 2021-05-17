@@ -27,6 +27,13 @@ class RightSidebar extends React.Component{
     let aboutArrow = (this.props.pathName === `/channel/${this.props.channel.id}/sidebar/about`) ?
     faChevronDown : faChevronRight
 
+    let members = [];
+    if (Object.keys(this.props.memberships).length > 0){
+      members = this.props.users.filter(user => (
+        (Object.keys(user).includes("membershipId") &&
+        Object.keys(this.props.memberships).includes(user.membershipId.toString()))
+      ))
+    }
     return(
       <div className="right-side-bar">
         <div className="details">
@@ -48,7 +55,7 @@ class RightSidebar extends React.Component{
               <div>Members</div>
               <div><FontAwesomeIcon icon={membersArrow} /></div>
             </NavLink>
-            <Route path={membersPath} render={props => <RightSidebarMembersList {...props} users={this.props.users}/>}/>
+            <Route path={membersPath} render={props => <RightSidebarMembersList {...props} users={this.props.users} members={members}/>}/>
           </li>
         </ul>
       </div>

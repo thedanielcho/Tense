@@ -21,13 +21,19 @@ class ChannelMain extends React.Component{
 
   componentDidMount(){
     this.props.requestAllUsers(this.props.channel.id)
+    this.props.requestMemberships(this.props.channel.id)
+  }
+
+  componentDidUpdate(){
+
   }
 
 
   render(){
-    debugger
+
     let width = (this.props.pathName.includes('sidebar')) ?
-      "channel-main thin" : "channel-main wide"
+      "channel-main thin" : "channel-main wide";
+
     return(
       <div className={width}>
         <ChannelMainHeader
@@ -36,6 +42,8 @@ class ChannelMain extends React.Component{
           pathName={this.props.pathName}
           handleSidebar={this.handleSidebar}
           requestAllUsers={this.props.requestAllUsers}
+          memberships={this.props.memberships}
+          requestMemberships={this.props.requestMemberships}
         />
         <div className="messages-container">
           <div>Messages go here</div>
