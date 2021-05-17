@@ -15,24 +15,26 @@ import configureStore from "./store/store";
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById('root');
   let store = configureStore();
-  if (window.currentUser) {
-    const channels = {}
-    window.currentChannels.forEach((channel) => {
-      channels[channel.id] = channel
-    })
 
-    const preloadedState = {
-      entities: {
-        users: { [window.currentUser.id]: window.currentUser },
-        channels: channels
-      },
-      session: { id: window.currentUser.id }
-    };
-    store = configureStore(preloadedState);
-    delete window.currentUser;
-  } else {
-    store = configureStore();
+  const channels = {}
+  debugger
+  window.currentChannels.forEach((channel) => {
+    channels[channel.id] = channel
+  })
+  const preloadedState = {
+    entities: {
+      channels: channels 
+    }
   }
+  delete window.currentChannels;
+
+  if (window.currentUser) {
+    preloadedState.entities.users = { [window.currentUser.id]: window.currentUser };
+    preloadedState.session =  { id: window.currentUser.id }
+    delete window.currentUser;
+  } 
+
+  store = configureStore(preloadedState);
 
   //testing
   window.getState = store.getState;

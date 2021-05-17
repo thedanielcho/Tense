@@ -14,7 +14,7 @@ class ChannelMainHeader extends React.Component{
   }
 
   render(){
-
+    debugger
     let redirectPath = (this.props.pathName.includes('sidebar')) ?
     `/channel/${this.props.channel.id}`
     : `/channel/${this.props.channel.id}/sidebar`;

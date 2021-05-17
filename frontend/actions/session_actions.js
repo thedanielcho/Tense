@@ -13,6 +13,7 @@ const receiveCurrentUser = (user) => {
 }
 
 const logoutCurrentUser = () => {
+  debugger
   return {
     type: LOGOUT_CURRENT_USER
   }
@@ -44,10 +45,12 @@ export const login = (user) => (dispatch) => {
   )
 }
 
-export const logout = () => (dispatch) => (
+export const logout = () => (dispatch) => {
+  debugger
+  return(
   APIUtils.logout()
     .then(() => dispatch(logoutCurrentUser()))
-)
+)}
 
 export const demoLogin = () => (dispatch) => {
   const demoUser = {

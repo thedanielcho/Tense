@@ -18,7 +18,7 @@ class Channel extends React.Component{
 
 
   render(){
-
+    debugger
     return(
       <div className="channel">
         <ChannelMain
@@ -29,6 +29,7 @@ class Channel extends React.Component{
           requestAllChannels={this.props.requestAllChannels}
           memberships={this.props.memberships}
           requestMemberships={this.props.requestMemberships}
+          currentUser={this.props.currentUser}
         />
         <Route
           path="/channel/:channelId/sidebar"

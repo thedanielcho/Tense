@@ -6,8 +6,14 @@
     ).html_safe %>
     window.currentChannels = <%= render(
       "api/channels/channels.json.jbuilder",
-      channels: Channel.all.where(public?: true)
+      channels: Channel.all
     ).html_safe %>
   </script>
 <% end %>
+<script type="text/javascript">
+    window.currentChannels = <%= render(
+      "api/channels/channels.json.jbuilder",
+      channels: Channel.all
+    ).html_safe %>
+</script>
 <main id="root"></main>
