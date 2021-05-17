@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
     resources :channels, only: [:index, :show, :create, :update, :destroy] do
       resources :users, only: [:index]
-      resources :memberships, only: [:create]
+      resources :memberships, only: [:create, :index]
     end
     resources :memberships, only: :destroy
 

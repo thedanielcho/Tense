@@ -4,6 +4,10 @@
       "api/users/user.json.jbuilder",
       user: current_user
     ).html_safe %>
+    window.currentChannels = <%= render(
+      "api/channels/channels.json.jbuilder",
+      channels: Channel.all.where(public?: true)
+    ).html_safe %>
   </script>
 <% end %>
 <main id="root"></main>

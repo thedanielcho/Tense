@@ -16,9 +16,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById('root');
   let store = configureStore();
   if (window.currentUser) {
+    const channels = {}
+    window.currentChannels.forEach((channel) => {
+      channels[channel.id] = channel
+    })
+
     const preloadedState = {
       entities: {
-        users: { [window.currentUser.id]: window.currentUser }
+        users: { [window.currentUser.id]: window.currentUser },
+        channels: channels
       },
       session: { id: window.currentUser.id }
     };

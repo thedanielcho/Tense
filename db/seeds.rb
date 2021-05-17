@@ -11,3 +11,15 @@ users = User.create([
   {email: "thedanielcho@gmail.com", display_name: "Daniel Cho", password: "password"},
   {email: "demo@mail.com", display_name: "demo user", password: "password"}
 ])
+
+channels = Channel.create([
+  {name: "general", description: "General chat for everyone", public?: true, admin_id: 1},
+  {name: "test1", public?: true, admin_id: 1},
+  {name: "test2", public?: true, admin_id: 1},
+])
+
+memberships = Membership.create([
+  {user_id: 1, memberable_type: "Channel", memberable_id: 1}
+  {user_id: 2, memberable_type: "Channel", memberable_id: 1}
+])
+
