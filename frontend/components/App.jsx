@@ -9,6 +9,7 @@ import channel_container from "./channels/channel_container";
 import left_sidebar_container from "./leftsidebar/left_sidebar_container";
 import Header from "./header/header";
 import header_container from "./header/header_container";
+import Modal from "./modal/modal";
 
 
 class App extends React.Component{
@@ -25,6 +26,7 @@ class App extends React.Component{
 
     return(
       <div>
+        <Modal />
         <Route exact path="/" component={SplashContainer} />
         <AuthRoute path="/login" component={login_form_container} />
         <AuthRoute path="/signup" component={signup_form_container} />

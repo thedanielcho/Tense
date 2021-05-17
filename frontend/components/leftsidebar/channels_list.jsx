@@ -28,7 +28,7 @@ class ChannelsList extends React.Component{
               handleRedirect={this.props.handleRedirect}
               />
           })}
-          <li className="add-channel">
+          <li className="add-channel" onClick={() => this.props.openModal('channelCreate')}>
             <FontAwesomeIcon icon={faPlus} /> 
             <p>
               Add channel

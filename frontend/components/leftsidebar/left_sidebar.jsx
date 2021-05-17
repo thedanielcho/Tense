@@ -33,6 +33,7 @@ class LeftSidebar extends React.Component{
             channels={this.props.channels}
             pathName={this.props.pathName}
             handleRedirect={this.handleRedirect}
+            openModal={this.props.openModal}
           />
         </ul>
       </div>

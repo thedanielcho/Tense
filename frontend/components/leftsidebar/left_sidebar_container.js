@@ -1,6 +1,7 @@
 import { connect } from "react-redux"
 import { createChannel, requestAllChannels } from "../../actions/channel_actions"
 import { requestMemberships } from "../../actions/membership_actions"
+import { openModal } from "../../actions/modal_actions"
 import { requestAllUsers } from "../../actions/user_actions"
 import LeftSidebar from "./left_sidebar"
 
@@ -20,7 +21,8 @@ const mapDispatchToProps = (dispatch) => {
     createChannel: (channel) => dispatch(createChannel(channel)),
     requestAllChannels: () => dispatch(requestAllChannels()),
     requestAllUsers: (channelId) => dispatch(requestAllUsers(channelId)),
-    requestMemberships: (channelId) => dispatch(requestMemberships(channelId))
+    requestMemberships: (channelId) => dispatch(requestMemberships(channelId)),
+    openModal: (modal) => dispatch(openModal(modal))
   }
 }
 
