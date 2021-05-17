@@ -41,10 +41,6 @@ class Api::MembershipsController < ApplicationController
     @membership = Membership.find(params[:id])
     @membership.destroy
     render json: ['Membership revoked']
-<<<<<<< HEAD
-=======
-
->>>>>>> develop
   end
 
   private
