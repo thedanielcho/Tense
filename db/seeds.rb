@@ -21,8 +21,8 @@ channel1 = Channel.create!(name: "general", description: "General chat for every
 channel2 = Channel.create!(name: "test1", public?: true, admin_id: user1.id)
 channel3 = Channel.create!(name: "test2", public?: true, admin_id: user1.id)
 
-membership1 = Membership.create!(user_id: user1.id, memberable_type: "Channel", memberable_id: channel1)
-membership2 = Membership.create!(user_id: user2.id, memberable_type: "Channel", memberable_id: channel1)
-membership3 = Membership.create!(user_id: user1.id, memberable_type: "Channel", memberable_id: channel2)
-membership4 = Membership.create!(user_id: user2.id, memberable_type: "Channel", memberable_id: channel2)
-membership5 = Membership.create!(user_id: user1.id, memberable_type: "Channel", memberable_id: channel3)
+membership1 = Membership.create!(user_id: user1.id, memberable_type: "Channel", memberable_id: channel1.id)
+membership2 = Membership.create!(user_id: user2.id, memberable_type: "Channel", memberable_id: channel1.id)
+membership3 = Membership.create!(user_id: user1.id, memberable_type: "Channel", memberable_id: channel2.id)
+membership4 = Membership.create!(user_id: user2.id, memberable_type: "Channel", memberable_id: channel2.id)
+membership5 = Membership.create!(user_id: user1.id, memberable_type: "Channel", memberable_id: channel3.id)
