@@ -8,7 +8,6 @@ class Header extends React.Component{
   }
 
   handleLogout(){
-    debugger
     this.props.logout()
   }
 

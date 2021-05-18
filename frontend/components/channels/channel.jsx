@@ -18,7 +18,7 @@ class Channel extends React.Component{
 
 
   render(){
-    debugger
+
     return(
       <div className="channel">
         <ChannelMain

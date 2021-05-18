@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let store = configureStore();
 
   const channels = {}
-  debugger
   window.currentChannels.forEach((channel) => {
     channels[channel.id] = channel
   })

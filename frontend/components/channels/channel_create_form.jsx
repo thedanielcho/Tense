@@ -14,24 +14,24 @@ class ChannelCreateForm extends React.Component{
   }
 
   handleSubmit(e){
-    debugger
+
     e.preventDefault();
     const channel = Object.assign({}, this.state);
     let railsReadyChannel = snakifyObject(channel);
     railsReadyChannel["public?"] = channel.public;
-    debugger
+
     this.props.createChannel(railsReadyChannel).then(this.props.closeModal);
   }
 
   handleCheckbox(){
-    debugger
+
     this.setState({
       public: !this.state.public
     })
   }
 
   handleInput(type) {
-    debugger
+
     return (e) => {
       this.setState({
         [type]: e.target.value

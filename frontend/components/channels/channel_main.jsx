@@ -1,4 +1,5 @@
 import React from 'react';
+import ChatRoom from '../messages/chat_room';
 import MessageForm from '../messages/message_form';
 import ChannelMainHeader from './channel_main_header';
 
@@ -30,7 +31,7 @@ class ChannelMain extends React.Component{
 
 
   render(){
-    debugger
+
     let width = (this.props.pathName.includes('sidebar')) ?
       "channel-main thin" : "channel-main wide";
 
@@ -55,7 +56,7 @@ class ChannelMain extends React.Component{
         />
       </div>
     )
-    debugger
+
     if(this.props.currentUser.membershipId &&
       Object.keys(this.props.memberships).includes(this.props.currentUser.membershipId.toString())){
         view = (
@@ -70,10 +71,10 @@ class ChannelMain extends React.Component{
               requestMemberships={this.props.requestMemberships}
             />
             <div className="messages-container">
-              <div>Messages go here</div>
-              <MessageForm
+              <ChatRoom 
                 channel={this.props.channel}
                 users={this.props.users}
+                currentUser={this.props.currentUser}
               />
             </div>
           </div>)

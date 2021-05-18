@@ -1,7 +1,6 @@
 import React from 'react'
 
 const RightSidebarMembersList = (props) => {
-  debugger
   return (
     <ul className="members-list">
       {props.members.map((member)=>{

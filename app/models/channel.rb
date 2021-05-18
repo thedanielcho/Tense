@@ -16,4 +16,8 @@ class Channel < ApplicationRecord
   through: :memberships,
   source: :user
 
+  has_many :messages,
+  as: :messageable,
+  dependent: :destroy
+
 end
