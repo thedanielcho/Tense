@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserPlus, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 
-class ChannelMainHeader extends React.Component{
+class ChannelHeader extends React.Component{
 
   componentDidMount(){
 
@@ -39,4 +39,4 @@ class ChannelMainHeader extends React.Component{
   }
 }
 
-export default ChannelMainHeader;
+export default ChannelHeader;

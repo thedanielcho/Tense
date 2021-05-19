@@ -5,7 +5,7 @@ import snakifyObject from '../../util/snakify_util';
 
 class MessageForm extends React.Component{
   constructor(props){
-    debugger
+    
     super(props);
     this.state = {
       body: "",
@@ -23,7 +23,7 @@ class MessageForm extends React.Component{
   }
 
   handleSubmit(e){
-    debugger
+    
     e.preventDefault();
     const message = Object.assign({}, this.state);
     const snakeMessage = snakifyObject(message);

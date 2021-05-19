@@ -6,6 +6,7 @@ class ChatRoom extends React.Component{
     super(props);
     this.state = {messages: [] };
     this.bottom = React.createRef();
+    debugger
     this.subscription = App.cable.subscriptions.create(
       { 
         channel: 'ChatChannel',
@@ -26,13 +27,13 @@ class ChatRoom extends React.Component{
   }
 
   componentDidUpdate() {
-    // debugger
-    // this.bottom.current.scrollIntoView();
-}
+    
+    this.bottom.current.scrollIntoView();
+  }
 
   render(){
     const messageList = this.state.messages.map((message)=>{
-      debugger
+      
       return (
         <li key={message.id}>
           {message.body}
@@ -42,7 +43,7 @@ class ChatRoom extends React.Component{
     });
     return(
       <div className="chatroom-container">
-        <div className="message-list">
+        <div className="message-list" ref={this.bottom}>
           {messageList}
         </div>
         <MessageForm channel={this.props.channel} subscription={this.subscription} currentUser={this.props.currentUser}/>

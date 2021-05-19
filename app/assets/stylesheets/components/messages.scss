@@ -1,45 +1,56 @@
-.messages-container{
+.chatroom-container{
   background-color: rgb(58, 56, 59);
-  height: auto;
+  height: calc(100vh - 100px);
   display: grid;
   grid-template-rows: 1fr 80px;
-  .message-form{
+}
+
+.message-list{
+  overflow: auto;
+}
+
+.message-form{
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  padding-bottom: 25px;
+  padding-top: 15px;
+  background-color: rgb(58, 56, 59);
+  display: grid;
+  grid-template-columns: 5px 1fr 5px;
+  grid-row: 2/2;
+  input {
+    grid-column: 2 / 2;
+    color: white;
+    height: 25px;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 3px;
+    border: 2px solid gray;
+    background-color: rgb(58, 56, 59)
+  }
+
+  button{
+    border: 0;
+  }
+  .submit{
+    position: relative;
+    right: 35px;
+    height: 30px;
+    width: 30px;
+    display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    padding-bottom: 25px;
-    padding-top: 15px;
+    justify-content: center;
+    border-radius: 3px;
     background-color: rgb(58, 56, 59);
-    display: grid;
-    grid-template-columns: 5px 1fr 5px;
-    grid-row: 2/2;
-    input {
-      grid-column: 2 / 2;
+
+    svg {
+      font-size: 20px;
       color: white;
-      height: 25px;
-      font-size: 15px;
-      padding: 5px;
-      border-radius: 3px;
-      border: 2px solid gray;
-      background-color: rgb(58, 56, 59)
+      cursor: pointer;
     }
-    .submit{
-      position: relative;
-      right: 35px;
-      height: 30px;
-      width: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 3px;
-      svg {
-        font-size: 20px;
-        color: white;
-        cursor: pointer;
-      }
-    }
-    .submit:hover{
-      background-color: gray;
-    }
+  }
+  .submit:hover{
+    background-color: gray;
   }
 }
