@@ -25,9 +25,9 @@ class ChannelHeader extends React.Component{
         <h1>#{this.props.channel.name}</h1>
         <ul>
           <li>Members: {Object.keys(this.props.memberships).length}</li>
-          <li>
+          {/* <li>
             <FontAwesomeIcon icon={faUserPlus} />
-          </li>
+          </li> */}
           <li className={iconClass} onClick={this.props.handleSidebar}>
             <NavLink to={redirectPath}>
               <FontAwesomeIcon icon={faInfoCircle} />

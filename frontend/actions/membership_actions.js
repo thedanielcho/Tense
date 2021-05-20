@@ -3,6 +3,7 @@ import * as APIUtils from '../util/membership_api_utl';
 export const RECEIVE_USER = "RECEIVE_USER";
 export const REMOVE_USER = "REMOVE_USER";
 export const RECEIVE_MEMBERSHIPS = "RECEIVE_MEMBERSHIPS";
+export const RECEIVE_MEMBERSHIP = "RECEIVE_MEMBERSHIP";
 
 const receiveUser = (user) => {
   return {
@@ -26,10 +27,18 @@ const recieveMemberships = (memberships) => {
   }
 }
 
+export const receiveMembership = (membershipInfo) => {
+  debugger
+  return {
+    type: RECEIVE_MEMBERSHIP,
+    membershipInfo
+  }
+}
+
 export const createMembership = (memberableId, memberableType, membership) => (dispatch) => {
   return (
     APIUtils.createMembership(memberableId, memberableType, membership)
-      .then((user) => dispatch(receiveUser(user)))
+      .then((membershipInfo) => dispatch(receiveMembership(membershipInfo)))
   )
 }
 

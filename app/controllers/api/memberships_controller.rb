@@ -12,11 +12,12 @@ class Api::MembershipsController < ApplicationController
       @membership = Membership.new(membership_params)
       @membership.memberable_id = channel.id
       @membership.memberable_type = "Channel"
+      @user = User.find(params[:membership][:user_id])
     else
       #for dm's
     end
     if @membership.save
-      render json: ['Joined!']
+      render :show
     else
       render json: @membership.errors.full_messages, status: 401
     end

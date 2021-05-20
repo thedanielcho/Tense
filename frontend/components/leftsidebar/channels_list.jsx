@@ -8,18 +8,22 @@ class ChannelsList extends React.Component{
     super(props);
     this.state = {
       active: true
-    }
+    };
+    this.handleShow = this.handleShow.bind(this)
+  }
+
+  handleShow(){
+    this.setState({
+      active: !this.state.active
+    })
   }
 
 
   render(){
     let caret = this.state.active ? <FontAwesomeIcon icon={faCaretDown} /> : <FontAwesomeIcon icon={faCaretRight} />
-    return(
-      <li className="channels-list-container">
-        <div className="label">
-          {caret}Channels:
-        </div>
-        <ul className="channels-list">
+    
+    let messageList = (this.state.active) ? 
+    <ul className="channels-list">
           {this.props.channels.map((channel) => {
             return <ChannelsListItem
               key={channel.id}
@@ -34,7 +38,13 @@ class ChannelsList extends React.Component{
               Add channel
             </p>
           </li>
-        </ul>
+        </ul> : <></>
+    return(
+      <li className="channels-list-container">
+        <div onClick={this.handleShow} className="label">
+          {caret}Channels:
+        </div>
+        {messageList}
       </li>
     )
   }

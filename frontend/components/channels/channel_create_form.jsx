@@ -66,7 +66,7 @@ class ChannelCreateForm extends React.Component{
           onChange={this.handleInput("description")}
           placeholder=""
         />
-        <div className="private-toggle">
+        {/* <div className="private-toggle">
           <label htmlFor="private?">Make Private?</label>
           <label className="switch">
             <input
@@ -77,7 +77,7 @@ class ChannelCreateForm extends React.Component{
             />
             <span id="private?" className="slider round"></span>
           </label>
-        </div>
+        </div> */}
         <div className='submit-container'>
           {button}
         </div>

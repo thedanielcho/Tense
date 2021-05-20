@@ -1,4 +1,5 @@
 import React from 'react'
+import { extractDate } from '../../util/date_util'
 
 const RightSidebarAbout = (props) => {
 
@@ -9,7 +10,7 @@ const RightSidebarAbout = (props) => {
         <p>{(props.channel.description) ? props.channel.description : "No description"}</p>
       </li>
       <li className="created-on">
-        <p>Created on {props.channel.createdAt.split("T")[0]}</p>
+        <p>Created on {extractDate(props.channel.createdAt)}</p>
       </li>
     </ul>
   )

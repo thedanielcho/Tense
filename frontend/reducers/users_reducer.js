@@ -1,4 +1,4 @@
-import { RECEIVE_USER, REMOVE_USER } from "../actions/membership_actions";
+import { RECEIVE_MEMBERSHIP, RECEIVE_USER, REMOVE_USER } from "../actions/membership_actions";
 import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
 import { RECEIVE_ALL_USERS } from "../actions/user_actions";
 
@@ -24,6 +24,8 @@ const usersReducer = (state= {}, action) => {
     case REMOVE_USER:
       delete newState[action.userId];
       return newState;
+    case RECEIVE_MEMBERSHIP:
+      return Object.assign({}, state, {[action.membershipInfo.user.id]: action.membershipInfo.user});
     default:
       return state;
   }

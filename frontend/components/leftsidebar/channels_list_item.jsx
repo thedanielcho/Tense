@@ -17,7 +17,8 @@ class ChannelsListItem extends React.Component{
   }
 
   render(){
-    let activeClass = (this.props.pathName.includes(this.props.channel.id.toString())) ? 'active' : '';
+    debugger
+    let activeClass = (this.props.pathName.split("/")[2] === this.props.channel.id.toString()) ? 'active' : '';
 
     return(
       <a onClick={this.handleRedirect}>

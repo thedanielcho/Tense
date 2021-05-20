@@ -5,6 +5,7 @@ import RightSidebar from '../right_sidebar/right_sidebar';
 import right_sidebar_container from '../right_sidebar/right_sidebar_container';
 import ChanelHeaderContainer from './channel_header_container';
 import ChatRoomContainer from '../messages/chat_room_container';
+import ChannelMainContainer from './channel_main_container';
 
 class Channel extends React.Component{
   constructor(props){
@@ -13,6 +14,7 @@ class Channel extends React.Component{
       sidebar: false
     };
     this.handleSidebar = this.handleSidebar.bind(this);
+    this.handleJoin = this.handleJoin.bind(this);
   }
 
   handleSidebar(){
@@ -24,11 +26,20 @@ class Channel extends React.Component{
   componentDidMount(){
     this.props.requestAllUsers(this.props.channel.id)
     this.props.requestMemberships(this.props.channel.id)
+    this.props.requestAllMessages(this.props.channel.id)
+  }
+
+  handleJoin(){
+    this.props.createMembership(this.props.channel.id, "Channel", {user_id: this.props.currentUser.id})
+      .then(() => {
+        this.props.requestAllUsers(this.props.channel.id)
+        this.props.requestMemberships(this.props.channel.id)
+      })
   }
 
 
-
   render(){
+    // debugger
     let width = (this.props.pathName.includes('sidebar')) ?
     "channel-main thin" : "channel-main wide";
     
@@ -37,15 +48,21 @@ class Channel extends React.Component{
     if(this.props.currentUser.membershipId &&
       Object.keys(this.props.memberships).includes(this.props.currentUser.membershipId.toString())){
         channelView = (
+          // <Route path="/channel/:channelId"><ChatRoomContainer key={`chat ${this.props.channel.id}`}/></Route>
           <Route path="/channel/:channelId" component={ChatRoomContainer} />
         )
+    } else {
+      channelView = (
+        <button onClick={this.handleJoin}>Join this channel</button>
+      )
     }
     return(
       <div className="channel">
+        {/* <Route path="/channel/:channelId" component={ChannelMainContainer} /> */}
         <div className={width}>
-            <Route path="/channel/:channelId" component={ChanelHeaderContainer} />
-            {channelView}
-          </div>
+          <Route path="/channel/:channelId" component={ChanelHeaderContainer} />
+          {channelView}
+        </div>
         <Route path="/channel/:channelId/sidebar" component={right_sidebar_container} />
       </div>
     )

@@ -15,13 +15,19 @@ class ChatChannel < ApplicationCable::Channel
     socket = { 
       message: {
       id: @message.id,
-      user_id: @message.user_id,
+      userId: @message.user_id,
       body: @message.body,
-      messageable_id: @message.messageable_id,
-      messageable_type: @message.messageable_type,
-      created_at: @message.created_at
-      } 
+      messageableId: @message.messageable_id,
+      messageableType: @message.messageable_type,
+      createdAt: @message.created_at
+      }
     }
+    ChatChannel.broadcast_to(@chat, socket)
+  end
+
+  def load
+    messages = Message.where(messageable_id: @chat.id).limit(5).order(:created_at)
+    socket = { messages: messages, type: 'messages' }
     ChatChannel.broadcast_to(@chat, socket)
   end
 

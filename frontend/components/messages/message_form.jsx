@@ -25,10 +25,12 @@ class MessageForm extends React.Component{
   handleSubmit(e){
     
     e.preventDefault();
-    const message = Object.assign({}, this.state);
-    const snakeMessage = snakifyObject(message);
-    this.props.subscription.speak(({ message: snakeMessage }));;
-    this.setState({ body: "" });
+    if(this.state.body !== ""){
+      const message = Object.assign({}, this.state);
+      const snakeMessage = snakifyObject(message);
+      this.props.subscription.speak(({ message: snakeMessage }));;
+      this.setState({ body: "" });
+    }
   }
 
   render(){
@@ -42,6 +44,7 @@ class MessageForm extends React.Component{
             onChange={this.handleInput("body")}
             placeholder={`Send a message to ${this.props.channel.name}`}
             value={this.state.body}
+            autoComplete="off"
           />
           <button type="submit" className="submit">
             <FontAwesomeIcon icon={faCaretSquareRight} />

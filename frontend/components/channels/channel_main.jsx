@@ -3,23 +3,28 @@ import { Route } from 'react-router';
 import ChatRoom from '../messages/chat_room';
 import ChatRoomContainer from '../messages/chat_room_container';
 import MessageForm from '../messages/message_form';
-import ChannelMainHeader from './channel_header';
+import ChannelHeaderContainer from './channel_header_container';
 
 
 class ChannelMain extends React.Component{
 
   constructor(props){
     super(props);
+    this.state = {
+      sidebar: false
+    };
+    this.handleSidebar = this.handleSidebar.bind(this);
   }
 
+  componentDidMount(){
+    // this.props.requestAllMessages(this.props.channel.id)
+  }
 
-  // componentDidMount(){
-
-  //   this.props.requestAllUsers(this.props.channel.id)
-  //   this.props.requestMemberships(this.props.channel.id)
-  // }
-
-
+  handleSidebar(){
+    this.setState({
+      sidebar: !this.state.sidebar
+    })
+  }
 
   render(){
 
@@ -33,17 +38,19 @@ class ChannelMain extends React.Component{
     //     Object.keys(this.props.memberships).includes(user.membershipId.toString()))
     //   ))
     // }
+    let channelView;
+    if(this.props.currentUser.membershipId &&
+      Object.keys(this.props.memberships).includes(this.props.currentUser.membershipId.toString())){
+        channelView = (
+          <Route path="/channel/:channelId" component={ChatRoomContainer} />
+        )
+    }
 
     return(
-      <ChannelMainHeader
-        channel={this.props.channel}
-        users={this.props.users}
-        pathName={this.props.pathName}
-        handleSidebar={this.handleSidebar}
-        requestAllUsers={this.props.requestAllUsers}
-        memberships={this.props.memberships}
-        requestMemberships={this.props.requestMemberships}
-      />
+      <div className={width}>
+        <Route path="/channel/:channelId" component={ChannelHeaderContainer} />
+        {channelView}
+      </div>
     )
   }
 }

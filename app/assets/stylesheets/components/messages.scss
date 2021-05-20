@@ -7,6 +7,60 @@
 
 .message-list{
   overflow: auto;
+  height: calc(100vh - 180px);
+  display: flex;
+  flex-direction: column;
+  // margin-top: auto;
+  color: white;
+  li{
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: inline-block;
+    word-break: break-word;
+    display: flex;
+    align-items: center;
+
+    .avatar{
+      height: 30px;
+      border-radius: 5px;
+      width: 30px;
+    }
+
+    .message-container{
+      padding-left: 15px;
+    }
+
+    .name-and-date{
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      h1 {
+        // border-top: 1px solid gray;
+        padding-right: 6px;
+        font-weight: 700;
+      }
+
+      h5{
+        font-size: 10px;
+      }
+    }
+    p{
+      padding: 3px;
+    }
+  
+  }
+  .first {
+    border-top: 1px solid gray;
+    margin-top: 10px;
+  }
+
+  li:hover{
+    background-color: gray;
+  }
+
+  
 }
 
 .message-form{
