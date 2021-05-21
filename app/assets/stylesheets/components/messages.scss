@@ -1,17 +1,15 @@
 .chatroom-container{
   background-color: rgb(58, 56, 59);
   height: calc(100vh - 100px);
-  display: grid;
-  grid-template-rows: 1fr 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .message-list{
   overflow: auto;
-  height: calc(100vh - 180px);
-  display: flex;
-  flex-direction: column;
-  // margin-top: auto;
   color: white;
+  justify-content: flex-end;
   li{
     padding: 5px;
     padding-left: 10px;
