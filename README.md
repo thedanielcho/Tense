@@ -21,6 +21,62 @@ Tense is a clone of the prevalent messaging app "Slack". Through Tense, users ca
 <br></br>
 ![messaging](/app/assets/images/readme/messaging.gif)
 
+- To achieve this, I used the action cable feature built into Rails
+- First I set up the backend for my channels in Rails
+  - I set it up so that the multiple channels I have could each have their own subscriptions
+ 
+``` Ruby
+class ChatChannel < ApplicationCable::Channel
+  def subscribed
+    # stream_from "some_channel"
+    chat_type = params[:type]
+    @chat = chat_type.constantize.find_by(id: params[:chatId])
+    stream_for @chat if @chat
+  end
+  def speak(data)
+    @message = Message.create(
+      body: data["message"]["body"],
+      user_id: data["message"]["user_id"],
+      messageable_id: @chat.id,
+      messageable_type: "Channel"
+    )
+    socket = { 
+      message: {
+      id: @message.id,
+      userId: @message.user_id,
+      body: @message.body,
+      messageableId: @message.messageable_id,
+      messageableType: @message.messageable_type,
+      createdAt: @message.created_at
+      }
+    }
+    ChatChannel.broadcast_to(@chat, socket)
+  end
+
+```
+- Then I set up a subscription to set up a connection with specified channels on my front-end
+
+``` Javascript
+this.subscription = App.cable.subscriptions.create(
+      { 
+        channel: 'ChatChannel',
+        type: 'Channel',
+        chatId: this.props.channel.id,
+      },
+      {
+        received: data => {
+          this.setState.call(this, ({
+            newMessages: this.state.newMessages + 1}));
+        },
+        speak: data => {
+          return this.subscription.perform("speak", data);
+        },
+      }
+    );
+  }
+
+```
+
 ### Channels
 - Create channels for topics you want to discuss!
 <br></br>
