@@ -53,7 +53,9 @@ class Channel extends React.Component{
         )
     } else {
       channelView = (
-        <button onClick={this.handleJoin}>Join this channel</button>
+        <div className="join-container">
+          <button className="join-button" onClick={this.handleJoin}>Join this channel</button>
+        </div>
       )
     }
     return(

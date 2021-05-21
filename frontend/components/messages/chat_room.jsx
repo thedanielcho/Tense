@@ -64,6 +64,7 @@ class ChatRoom extends React.Component{
       this.setState({
         newMessages: 0
       })
+      this.props.requestAllUsers(this.props.channel.id)
       this.props.requestAllMessages(this.props.channel.id)
     }
     if(this.bottom.current){

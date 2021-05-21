@@ -1,5 +1,6 @@
 import { connect } from "react-redux"
 import { requestAllMessages } from "../../actions/message_actions"
+import { requestAllUsers } from "../../actions/user_actions"
 import ChatRoom from "./chat_room"
 
 const mapStateToProps = (state, ownProps) => {
@@ -14,7 +15,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    requestAllMessages: (channelId) => dispatch(requestAllMessages(channelId))
+    requestAllMessages: (channelId) => dispatch(requestAllMessages(channelId)),
+    requestAllUsers: (channelId) => dispatch(requestAllUsers(channelId))
   }
 }
 

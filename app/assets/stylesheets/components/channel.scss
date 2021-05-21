@@ -21,6 +21,25 @@
   }
 }
 
+.join-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .join-button{
+    background-color: #302735;
+    border: 1px solid gray;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    color: white;
+    height: 40px;
+    width: 150px;
+    border-radius: 5px;
+  }
+}
+
 .left-sidebar {
   display: grid;
   grid-template-rows: 60px 1fr;
@@ -67,6 +86,10 @@
         }
       }
 
+      .label{
+        cursor: pointer;
+      }
+
       .channels-list{
         display: flex;
         flex-direction: column;
@@ -111,7 +134,7 @@
         > .add-channel{
           display: flex;
           align-items: center;
-
+          cursor: pointer;
           svg {
             font-size: 10px;
             padding: 5px;
@@ -154,6 +177,9 @@
     background-color: #302735;
     color: white;
     border-radius: 5px;
+  }
+  button:hover{
+    background-color: rgb(135, 82, 151);
   }
 }
 
@@ -264,7 +290,7 @@
           }
           > li:hover {
             background-color: rgb(90, 68, 90);
-            cursor: pointer;
+            // cursor: pointer;
           }
         }
 

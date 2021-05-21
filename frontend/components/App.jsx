@@ -31,11 +31,13 @@ class App extends React.Component{
         <AuthRoute path="/login" component={login_form_container} />
         <AuthRoute path="/signup" component={signup_form_container} />
     
-        <div className="channel-view">
-          <ProtectedRoute path="/:viewType/:viewId" component={left_sidebar_container} />
-          <ProtectedRoute path="/channel" component={header_container} />
-          <ProtectedRoute path="/channel/:channelId" component={channel_container} />
-        </div>
+        <Route path="/channel">
+          <div className="channel-view">
+            <ProtectedRoute path="/:viewType/:viewId" component={left_sidebar_container} />
+            <ProtectedRoute path="/channel" component={header_container} />
+            <ProtectedRoute path="/channel/:channelId" component={channel_container} />
+          </div>
+        </Route>
       </div>
     );
   }
