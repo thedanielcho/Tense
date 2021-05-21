@@ -9,12 +9,16 @@ Tense is a clone of the prevalent messaging app "Slack". Through Tense, users ca
 ## Features
 
 - Create an account with just an email or try a demo!
+- You just need an email and the name you want displayed
+  - On the backend, we secure your information using BCrypt
+- Once you sign up and log in, there's no need to log back in again your next visit
+- 
 <br></br>
 ![session-form](/app/assets/images/readme/account.gif)
 
-
 ### Live-messaging!
-- Send messages and chat in real time!
+- Once you're logged in, you can see the real app!
+- Send and receive messages in real time!
 <br></br>
 ![messaging](/app/assets/images/readme/messaging.gif)
 
@@ -24,4 +28,4 @@ Tense is a clone of the prevalent messaging app "Slack". Through Tense, users ca
 ![messaging](/app/assets/images/readme/channel_creation.gif)
 
 
-
+[Try it out!](https://tense-app.herokuapp.com/#/)
