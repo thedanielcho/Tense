@@ -11,8 +11,7 @@ Tense is a clone of the prevalent messaging app "Slack". Through Tense, users ca
 - Create an account with just an email or try a demo!
 - You just need an email and the name you want displayed
   - On the backend, we secure your information using BCrypt
-- Once you sign up and log in, there's no need to log back in again your next visit
-- 
+
 <br></br>
 ![session-form](/app/assets/images/readme/account.gif)
 
