@@ -82,5 +82,9 @@ this.subscription = App.cable.subscriptions.create(
 <br></br>
 ![messaging](/app/assets/images/readme/channel_creation.gif)
 
+## Future Additions
+- Direct Messaging between users
+- More functionality for channels and messages, including editing and deleting them
+- Live typing, so everyone can see you type the second you make a keystroke
 
 [Try it out!](https://tense-app.herokuapp.com/#/)
