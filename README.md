@@ -6,28 +6,22 @@ Tense is a clone of the prevalent messaging app "Slack". Through Tense, users ca
 - PostgreSQL database
 - React/Redux front-end
 
+## Features
+
+- Create an account with just an email or try a demo!
+<br></br>
+![session-form](/app/assets/images/readme/account.gif)
+
+
+### Live-messaging!
+- Send messages and chat in real time!
+<br></br>
 ![messaging](/app/assets/images/readme/messaging.gif)
 
+### Channels
+- Create channels for topics you want to discuss!
+<br></br>
+![messaging](/app/assets/images/readme/channel_creation.gif)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
