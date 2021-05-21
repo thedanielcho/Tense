@@ -1,6 +1,5 @@
 export const extractDateTime = dateTime => {
   let dateObject = new Date(dateTime);
-  debugger
   // find the time and adjust it
   const timeOptions = { hour: 'numeric', minute: 'numeric' };
   let time = dateObject.toLocaleTimeString('en-US', timeOptions);

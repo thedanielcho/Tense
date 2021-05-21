@@ -7,7 +7,6 @@ import { requestAllUsers } from "../../actions/user_actions"
 import Channel from "./channel"
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   return {
     channel: state.entities.channels[ownProps.match.params.channelId],
     pathName: ownProps.history.location.pathname,

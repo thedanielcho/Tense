@@ -52,7 +52,6 @@ class ChatRoom extends React.Component{
   // }
 
   // handleUpdate(){
-  //   debugger
   //   this.setState({
   //     messages: this.props.messages.slice()
   //   })
@@ -81,7 +80,6 @@ class ChatRoom extends React.Component{
     //   this.handleUpdate()
     // }
     // const messageList = this.state.messages.map((message)=>{
-    //   debugger
     //   return (
     //     <MessageListItem message={message} users={this.props.users} bottom={this.bottom}/>
     //   );
@@ -115,30 +113,31 @@ class ChatRoom extends React.Component{
       <div className="chatroom-container">
           <ul className="message-list">
             {this.props.messages.map((message, idx) => {
-              debugger
-              let className = (lastDate === extractDate(message.createdAt)) || idx == 0 ? "" : "first";
-              let user = (lastUser === this.props.users[message.userId]) &&
-              (lastDate === extractDate(message.createdAt)) ?
-              <></> : <div className={"name-and-date"}>
-                        <h1>{this.props.users[message.userId].displayName}</h1>
-                        <h5>{extractDateTime(message.createdAt)}</h5>
-                      </div>;
-              let img = (lastUser === this.props.users[message.userId])&&
-              (lastDate === extractDate(message.createdAt)) ?
-              <div className="avatar"/> : <img src={window.defaultAvatar} alt="avatar" className="avatar" />;
-              lastUser = this.props.users[message.userId];
-              lastDate = extractDate(message.createdAt);
-              debugger
-              return (
-                <li key={message.id} className={className}>
-                  {img}
-                  <div className="message-container">
-                    {user}
-                    <p>{message.body}</p>
-                    <div ref={this.bottom} />
-                  </div>
-                </li>
-              )
+              if(this.props.users[message.userId]){
+                let className = (lastDate === extractDate(message.createdAt)) || idx == 0 ? "" : "first";
+                let user = (lastUser === this.props.users[message.userId]) &&
+                (lastDate === extractDate(message.createdAt)) ?
+                <></> : <div className={"name-and-date"}>
+                          <h1>{this.props.users[message.userId].displayName}</h1>
+                          <h5>{extractDateTime(message.createdAt)}</h5>
+                        </div>;
+                let img = (lastUser === this.props.users[message.userId])&&
+                (lastDate === extractDate(message.createdAt)) ?
+                <div className="avatar"/> : <img src={window.defaultAvatar} alt="avatar" className="avatar" />;
+                lastUser = this.props.users[message.userId];
+                lastDate = extractDate(message.createdAt);
+                return (
+                  <li key={message.id} className={className}>
+                    {img}
+                    <div className="message-container">
+                      {user}
+                      <p>{message.body}</p>
+                      <div ref={this.bottom} />
+                    </div>
+                  </li>
+                )
+                
+              }
             })}
           </ul>
         <MessageForm channel={this.props.channel} subscription={this.subscription} currentUser={this.props.currentUser}/>

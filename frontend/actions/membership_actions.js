@@ -28,7 +28,6 @@ const recieveMemberships = (memberships) => {
 }
 
 export const receiveMembership = (membershipInfo) => {
-  debugger
   return {
     type: RECEIVE_MEMBERSHIP,
     membershipInfo

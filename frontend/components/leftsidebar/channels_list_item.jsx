@@ -17,7 +17,6 @@ class ChannelsListItem extends React.Component{
   }
 
   render(){
-    debugger
     let activeClass = (this.props.pathName.split("/")[2] === this.props.channel.id.toString()) ? 'active' : '';
 
     return(

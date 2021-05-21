@@ -39,7 +39,6 @@ class Channel extends React.Component{
 
 
   render(){
-    // debugger
     let width = (this.props.pathName.includes('sidebar')) ?
     "channel-main thin" : "channel-main wide";
     
