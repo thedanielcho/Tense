@@ -10,14 +10,14 @@ class SplashFooter extends React.Component{
         <li className="summary">
           <ul>
             <li >
-              <a href="https://github.com/thedanielcho/Tense">
+              <a href="https://github.com/thedanielcho/Tense" target="_blank">
                 <img className="logo" src={window.tempIcon} alt="temp icon" />
               </a>
               
-              <a href="https://github.com/thedanielcho">
+              <a href="https://github.com/thedanielcho" target="_blank">
                 <img src={window.gitHubLogo} alt="gitHub logo" />
               </a>
-              <a href="https://www.linkedin.com/feed/">
+              <a href="https://www.linkedin.com/feed/" target="_blank">
                 <img src={window.linkedInLogo} alt="linkedin Logo" />
               </a>
             </li>

@@ -46,11 +46,16 @@ class Channel extends React.Component{
 
     if(this.props.currentUser.membershipId &&
       Object.keys(this.props.memberships).includes(this.props.currentUser.membershipId.toString())){
+
         channelView = (
           // <Route path="/channel/:channelId"><ChatRoomContainer key={`chat ${this.props.channel.id}`}/></Route>
           <Route path="/channel/:channelId" component={ChatRoomContainer} />
         )
+    } else if(!this.props.memberships || (Object.values(this.props.memberships)[0] && this.props.channel.id !== Object.values(this.props.memberships)[0].memberableId)){
+      // debugger
+      // return null;
     } else {
+
       channelView = (
         <div className="join-container">
           <button className="join-button" onClick={this.handleJoin}>Join this channel</button>

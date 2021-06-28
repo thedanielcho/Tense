@@ -109,6 +109,9 @@ class ChatRoom extends React.Component{
     let lastDate;
     let messagesList = this.props.messages.slice();
     messagesList.reverse()
+    if(this.props.messages.length > 0  && this.props.channel.id !== this.props.messages[0].messageableId){
+      return null;
+    }
     return(
       <div className="chatroom-container">
           <ul className="message-list">
