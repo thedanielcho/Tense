@@ -5,6 +5,7 @@ class User < ApplicationRecord
   validates :password_digest, presence:true
   validates :password, length: {minimum:6, allow_nil:true}
   after_initialize :ensure_session_token
+  validate :valid_email?
 
   has_many :owned_channels,
   foreign_key: :admin_id,
@@ -58,7 +59,14 @@ class User < ApplicationRecord
   end
 
   def valid_email?
-
+    parts = self.email.split("@")
+    if parts.length != 2
+      errors.add(:email, "is not valid")
+    elsif parts[1].split(".").length != 2
+      errors.add(:email, "is not valid")
+    else
+      return true
+    end
   end
 
 
