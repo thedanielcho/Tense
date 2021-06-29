@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { closeModal } from "../../actions/modal_actions";
 import ChannelCreateFormContainer from '../channels/channel_create_form_container';
+import ChannelEditFormContainer from '../channels/channel_edit_form_container';
 
 const Modal = ({modal, closeModal}) => {
   if(!modal){
@@ -13,10 +14,14 @@ const Modal = ({modal, closeModal}) => {
     case 'channelCreate':
       component = <ChannelCreateFormContainer />;
       break;
+    case 'channelEdit':
+      component = <ChannelEditFormContainer />;
+      break
     default:
       return null;
   }
   
+  // debugger
   return (
     <div className="modal-background" onClick={closeModal}>
       <div className="modal-child" onClick={e => e.stopPropagation()}>

@@ -16,6 +16,7 @@ export const fetchChannel = (id) => {
 
 //create
 export const createChannel = (channel) => {
+  debugger
   return $.ajax({
     method: "POST",
     url: "/api/channels",
@@ -25,6 +26,7 @@ export const createChannel = (channel) => {
 
 //update
 export const updateChannel = (id, channel) => {
+  debugger
   return $.ajax({
     method: "PATCH",
     url: `/api/channels/${id}`,

@@ -22,7 +22,7 @@ class ChannelHeader extends React.Component{
     return(
       
       <header>
-        <h1>#{this.props.channel.name}</h1>
+        <h1 onClick={() => this.props.openModal('channelEdit')}>#{this.props.channel.name}<p>edit</p></h1>
         <ul>
           <li>Members: {Object.keys(this.props.memberships).length}</li>
           {/* <li>

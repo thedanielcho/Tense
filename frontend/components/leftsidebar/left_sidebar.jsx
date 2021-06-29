@@ -8,7 +8,7 @@ class LeftSidebar extends React.Component{
   }
 
   componentDidMount(){
-    this.props.requestAllChannels()
+    // this.props.requestAllChannels()
   }
 
   handleRedirect(channelId){

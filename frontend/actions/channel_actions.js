@@ -13,6 +13,7 @@ const receiveAllChannels = (channels) => {
 }
 
 const receiveChannel = (channel) => {
+  debugger
   return {
     type: RECEIVE_CHANNEL,
     channel
@@ -45,6 +46,7 @@ export const requestSingleChannel = (id) => (dispatch) => (
 )
 
 export const createChannel = (channel) => (dispatch) => {
+  debugger
   return (
     APIUtils.createChannel(channel)
       .then((channel) => dispatch(receiveChannel(channel)))
@@ -53,12 +55,21 @@ export const createChannel = (channel) => (dispatch) => {
 }
 
 export const updateChannel = (id, channel) => (dispatch) => {
+  debugger
   return (
     APIUtils.updateChannel(id, channel)
-      .then((channel) => dispatch(receiveChannel(channel)))
+      .then(channel => dispatch(receiveChannel(channel)))
       .fail(errors => dispatch(receiveErrors(errors))) 
   )
 }
+
+// export const updateChannel = (id, channel) => (dispatch) => {
+//   return (
+//     APIUtils.updateChannel(id, channel)
+//       .then((channel) => dispatch(receiveChannel(channel)))
+//       .fail(errors => dispatch(receiveErrors(errors))) 
+//   )
+// }
 
 export const destroyChannel = (id) => (dispatch) => {
   return (

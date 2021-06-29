@@ -17,7 +17,7 @@ export const extractDateTime = dateTime => {
       return `${time}`;
   }
 
-  debugger
+  // debugger
   // // yesterday?
   // if(now.getTime() - dateObj.getTime() < 86400000){
   //   return `yesterday at ${time}`;
@@ -33,7 +33,7 @@ export const extractDateTime = dateTime => {
     (now.getMonth() - dateObj.getMonth() === 1) && 
     (now.getFullYear() === dateObj.getFullYear())
   ) { 
-    debugger
+    // debugger
     return `yesterday at ${time}`;
   }
 

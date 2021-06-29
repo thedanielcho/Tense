@@ -2,6 +2,7 @@ import { connect } from "react-redux"
 import { requestAllChannels } from "../../actions/channel_actions"
 import { requestMemberships } from "../../actions/membership_actions"
 import { requestAllUsers } from "../../actions/user_actions"
+import { openModal } from "../../actions/modal_actions"
 import ChannelMain from "./channel_main"
 import ChannelHeader from "./channel_header"
 
@@ -20,7 +21,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     requestAllChannels: () => dispatch(requestAllChannels()),
     requestAllUsers: (channelId) => dispatch(requestAllUsers(channelId)),
     requestMemberships: (channelId) => dispatch(requestMemberships(channelId)),
-    updateChanngel: (channelId, channel) => dispatch(updateChannel(channelId, channel))
+    updateChanngel: (channelId, channel) => dispatch(updateChannel(channelId, channel)),
+    openModal: (modal) => dispatch(openModal(modal))
   }
 }
 
