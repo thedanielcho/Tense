@@ -17,9 +17,24 @@ export const extractDateTime = dateTime => {
       return `${time}`;
   }
 
-  // yesterday?
-  if ((now.getDate() - dateObj.getDate() === 1) || (now.getMonth() - dateObj.getMonth() === 1) || (now.getYear() - dateObj.getFullYear() === 1)) {
-      return `yesterday at ${time}`;
+  debugger
+  // // yesterday?
+  // if(now.getTime() - dateObj.getTime() < 86400000){
+  //   return `yesterday at ${time}`;
+  // }
+  // if ((now.getDate() - dateObj.getDate() === 1) && (now.getMonth() === dateObj.getMonth()) && (now.getFullYear() === dateObj.getFullYear())) {
+  //     return `yesterday at ${time}`;
+  // }
+  if (
+    ((now.getDate() - dateObj.getDate() === 1) && 
+    (now.getMonth() === dateObj.getMonth()) && 
+    (now.getFullYear() === dateObj.getFullYear())) || 
+    ((now.getDate() - dateObj.getDate() < 1)) &&
+    (now.getMonth() - dateObj.getMonth() === 1) && 
+    (now.getFullYear() === dateObj.getFullYear())
+  ) { 
+    debugger
+    return `yesterday at ${time}`;
   }
 
   // more than a day ago

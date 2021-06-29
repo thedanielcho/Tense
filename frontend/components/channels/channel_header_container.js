@@ -19,7 +19,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     requestAllChannels: () => dispatch(requestAllChannels()),
     requestAllUsers: (channelId) => dispatch(requestAllUsers(channelId)),
-    requestMemberships: (channelId) => dispatch(requestMemberships(channelId))
+    requestMemberships: (channelId) => dispatch(requestMemberships(channelId)),
+    updateChanngel: (channelId, channel) => dispatch(updateChannel(channelId, channel))
   }
 }
 
