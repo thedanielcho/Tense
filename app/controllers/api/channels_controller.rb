@@ -43,7 +43,7 @@ class Api::ChannelsController < ApplicationController
     @channel = Channel.find(params[:id])
     if @channel && @channel.admin == current_user
       @channel.destroy
-      render json: {message: 'channel deleted'}
+      render :show
     else
       render json: ["Not authorized to perform that action"], status: 401
     end

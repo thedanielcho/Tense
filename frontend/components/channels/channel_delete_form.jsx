@@ -12,15 +12,15 @@ class ChannelDeleteForm extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    let path = window.location.href.split("/")
-    // let splitPath = this.props.pathName.split("/");
-    path[5] = "1";
-    let redirectPath = path.join("/");
-    // this.handleRedirect()
+    let splitPath = this.props.history.location.pathname.split("/");
+    splitPath[2] = "1";
+    let redirectPath = splitPath.join("/");
+    this.props.history.push(redirectPath);
     this.props.destroyChannel(this.props.channel.id)
       .then(this.props.closeModal)
       .then(()=>{
-        this.props.handleRedirect(redirectPath)
+        this.props.requestAllMessages(1);
+        this.props.requestAllChannels()
       })
   }
 

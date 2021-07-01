@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { requestAllMessages } from '../../actions/message_actions';
 import { closeModal } from "../../actions/modal_actions";
 import ChannelCreateFormContainer from '../channels/channel_create_form_container';
 import ChannelDeleteFormContainer from '../channels/channel_delete_form_container';
 import ChannelEditFormContainer from '../channels/channel_edit_form_container';
 
-const Modal = ({modal, closeModal}) => {
+const Modal = ({modal, closeModal, history}) => {
   if(!modal){
     return null;
   }
@@ -19,7 +18,7 @@ const Modal = ({modal, closeModal}) => {
       component = <ChannelEditFormContainer />;
       break
     case 'channelDelete':
-      component = <ChannelDeleteFormContainer handleRedirect={handleRedirect.bind(this)}/>;
+      component = <ChannelDeleteFormContainer history={history}/>;
       break
     default:
       return null;
@@ -34,20 +33,15 @@ const Modal = ({modal, closeModal}) => {
   )
 }
 
-const handleRedirect = (redirectPath) => {
-  debugger
-  window.location.assign(redirectPath);
-  debugger
-  requestAllMessages(1);
-}
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    history: ownProps.history
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     closeModal: () => dispatch(closeModal())
   }

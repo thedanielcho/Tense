@@ -1,8 +1,8 @@
 import { connect } from "react-redux"
-import { destroyChannel } from "../../actions/channel_actions"
+import { destroyChannel, requestAllChannels } from "../../actions/channel_actions"
 import { closeModal } from "../../actions/modal_actions"
 import ChannelDeleteForm from "./channel_delete_form"
-
+import { requestAllMessages } from '../../actions/message_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -15,6 +15,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return{
     destroyChannel: (id) => dispatch(destroyChannel(id)),
     closeModal: () => dispatch(closeModal()),
+    requestAllMessages: (id) => dispatch(requestAllMessages(id)),
+    requestAllChannels: () => dispatch(requestAllChannels())
   }
 }
 

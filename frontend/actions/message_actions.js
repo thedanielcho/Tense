@@ -9,7 +9,6 @@ const receiveMessages = (messages) => {
 }
 
 export const requestAllMessages = (channelId) => (dispatch) => {
-  debugger
   return (
     APIUtils.fetchMessages(channelId)
       .then((messages) => dispatch(receiveMessages(messages)))
