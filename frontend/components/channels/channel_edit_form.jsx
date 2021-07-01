@@ -11,7 +11,6 @@ class ChannelEditForm extends React.Component{
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheckbox = this.handleCheckbox.bind(this);
-    // debugger
   }
 
   handleSubmit(e){
@@ -20,7 +19,6 @@ class ChannelEditForm extends React.Component{
     let railsReadyChannel = snakifyObject(channel);
     railsReadyChannel["public?"] = channel.public;
     // railsReadyChannel["id"] = this.props.channel.id;
-    // debugger
     this.props.updateChannel(this.props.channel.id, railsReadyChannel).then(this.props.closeModal);
   }
 
@@ -41,10 +39,9 @@ class ChannelEditForm extends React.Component{
   }
 
   render(){
-    // debugger
     let button = this.state.name.length > 1 ? 
     <button type='submit' >Edit</button>
-    : <button type='submit' disabled>Create</button>
+    : <button type='submit' disabled>Edit</button>
 
     return(
       <div className="create-channel-container">

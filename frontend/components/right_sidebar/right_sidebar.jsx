@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import RightSidebarAbout from './right_sidebar_about';
 import RightSidebarMembersList from './right_sidebar_members_list';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes, faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faTimes, faChevronDown, faChevronRight, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 class RightSidebar extends React.Component{
 
@@ -34,6 +34,11 @@ class RightSidebar extends React.Component{
         Object.keys(this.props.memberships).includes(user.membershipId.toString()))
       ))
     }
+    let deleteTab = (this.props.channel.adminId === this.props.currentUser.id) ?
+    <li className="delete-tab" onClick={() => this.props.openModal('channelDelete')}>
+      <div>Delete this channel</div>
+      <div><FontAwesomeIcon icon={faTrashAlt} /></div>
+    </li> : ""
     return(
       <div className="right-side-bar">
         <div className="details">
@@ -57,6 +62,7 @@ class RightSidebar extends React.Component{
             </NavLink>
             <Route path={membersPath} render={props => <RightSidebarMembersList {...props} users={this.props.users} members={members}/>}/>
           </li>
+          {deleteTab}
         </ul>
       </div>
 

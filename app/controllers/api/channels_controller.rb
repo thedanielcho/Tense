@@ -16,7 +16,6 @@ class Api::ChannelsController < ApplicationController
   end
 
   def create
-    # debugger
     @channel = Channel.new(channel_params)
     @channel.admin_id = current_user.id
     if @channel.save
@@ -32,10 +31,8 @@ class Api::ChannelsController < ApplicationController
   end
 
   def update
-    # debugger
     @channel = Channel.find(params[:id])
     if @channel.update(channel_params)
-      # debugger
       render :show
     else
       render json: @channel.errors.full_messages, status: 401

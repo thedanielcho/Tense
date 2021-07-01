@@ -1,4 +1,5 @@
 import { connect } from "react-redux"
+import { openModal } from "../../actions/modal_actions"
 import RightSidebar from "./right_sidebar"
 
 const mapStateToProps = (state, ownProps) => {
@@ -7,13 +8,14 @@ const mapStateToProps = (state, ownProps) => {
     users: Object.values(state.entities.users),
     pathName: ownProps.history.location.pathname,
     memberships: state.entities.memberships,
+    currentUser: state.entities.users[state.session.id]
   }
 }
 
-// const mapDispatchToProps = (dispatch, ownProps) => {
-//   return {
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    openModal: (modal) => dispatch(openModal(modal))
+  }
+}
 
-//   }
-// }
-
-export default connect(mapStateToProps, null)(RightSidebar)
+export default connect(mapStateToProps, mapDispatchToProps)(RightSidebar)

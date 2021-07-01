@@ -4,12 +4,10 @@ import { RECEIVE_ALL_USERS } from "../actions/user_actions";
 
 
 const usersReducer = (state= {}, action) => {
-  // debugger
   Object.freeze(state);
   let newState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      // debugger
       return Object.assign({}, state, {[action.user.id]: action.user});
     case RECEIVE_ALL_USERS:
       // let refreshedState = {}
@@ -27,7 +25,6 @@ const usersReducer = (state= {}, action) => {
       delete newState[action.userId];
       return newState;
     case RECEIVE_MEMBERSHIP:
-      // debugger
       return Object.assign({}, state, {[action.membershipInfo.user.id]: action.membershipInfo.user});
     default:
       return state;

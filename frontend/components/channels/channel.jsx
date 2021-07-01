@@ -52,7 +52,6 @@ class Channel extends React.Component{
           <Route path="/channel/:channelId" component={ChatRoomContainer} />
         )
     } else if(!this.props.memberships || (Object.values(this.props.memberships)[0] && this.props.channel.id !== Object.values(this.props.memberships)[0].memberableId)){
-      // debugger
       // return null;
     } else {
 

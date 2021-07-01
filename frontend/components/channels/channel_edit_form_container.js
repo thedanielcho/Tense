@@ -6,7 +6,6 @@ import { requestAllChannels } from "../../actions/channel_actions"
 
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger
   return {
     errors: state.errors,
     channel: state.entities.channels[parseInt(window.location.href.split("/")[5])]

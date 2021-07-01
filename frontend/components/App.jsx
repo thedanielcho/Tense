@@ -26,7 +26,8 @@ class App extends React.Component{
 
     return(
       <div>
-        <Modal />
+        {/* <Modal /> */}
+        <ProtectedRoute path="/:viewType/:viewId" component={Modal} />
         <Route exact path="/" component={SplashContainer} />
         <AuthRoute path="/login" component={login_form_container} />
         <AuthRoute path="/signup" component={signup_form_container} />
