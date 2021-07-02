@@ -19,10 +19,13 @@ class ChannelHeader extends React.Component{
     : `/channel/${this.props.channel.id}/sidebar`;
     let iconClass = (this.props.pathName.includes('sidebar')) ?
      "activated" : "";
+
+    let edit = (this.props.channel.adminId === this.props.currentUser.id) ?
+    <span className="edit" onClick={() => this.props.openModal('channelEdit')}>edit</span> : ""
     return(
       
       <header>
-        <h1 onClick={() => this.props.openModal('channelEdit')}>#{this.props.channel.name}<p>edit</p></h1>
+        <h1>#{this.props.channel.name} {edit}</h1>
         <ul>
           <li>Members: {Object.keys(this.props.memberships).length}</li>
           {/* <li>

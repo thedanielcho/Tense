@@ -201,6 +201,13 @@
       padding: 10px;
       font-weight: 700;
       color: white;
+      span{
+        font-size: 14px;
+        font-weight: 500;
+        font-style: italic;
+        color: #867086;
+        cursor: pointer;
+      }
       ul {
         display: flex;
         align-items: center;
