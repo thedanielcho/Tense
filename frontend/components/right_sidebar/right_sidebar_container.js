@@ -8,13 +8,14 @@ const mapStateToProps = (state, ownProps) => {
     users: Object.values(state.entities.users),
     pathName: ownProps.history.location.pathname,
     memberships: state.entities.memberships,
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    modal: state.ui.modal,
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    openModal: (modal) => dispatch(openModal(modal))
+    openModal: (modal, target) => dispatch(openModal(modal, target))
   }
 }
 

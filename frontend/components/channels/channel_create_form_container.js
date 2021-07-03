@@ -5,6 +5,7 @@ import ChannelCreateForm from "./channel_create_form"
 
 
 const mapStateToProps = (state, ownProps) => {
+  debugger
   return {
     errors: state.errors
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route } from 'react-router';
 import ChannelsList from './channels_list';
 
 class LeftSidebar extends React.Component{

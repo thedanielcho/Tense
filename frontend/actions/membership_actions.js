@@ -12,15 +12,16 @@ const receiveUser = (user) => {
   }
 }
 
-const removeUser = (userId) => {
+const removeUser = (membership) => {
+  debugger
   return {
     type: REMOVE_USER,
-    userId
+    membership
   }
 }
 
 const recieveMemberships = (memberships) => {
-
+  debugger
   return {
     type: RECEIVE_MEMBERSHIPS,
     memberships
@@ -44,7 +45,7 @@ export const createMembership = (memberableId, memberableType, membership) => (d
 export const destroyMembership = (membershipId) => (dispatch) => {
   return (
     APIUtils.destroyMembership(membershipId)
-      .then((userId) => dispatch(removeUser(userId)))
+      .then((membership) => dispatch(removeUser(membership)))
   )
 }
 

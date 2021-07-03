@@ -35,10 +35,13 @@ class RightSidebar extends React.Component{
       ))
     }
     let deleteTab = (this.props.channel.adminId === this.props.currentUser.id) ?
-    <li className="delete-tab" onClick={() => this.props.openModal('channelDelete')}>
+    <li className="delete-tab" onClick={() => this.props.openModal('channelDelete', "test")}>
       <div>Delete this channel</div>
       <div><FontAwesomeIcon icon={faTrashAlt} /></div>
     </li> : ""
+    let admin = (this.props.channel.adminId === this.props.currentUser.id) ?
+    true : false;
+    let mainChannel = this.props.channel.id === 1 ? true : false;
     return(
       <div className="right-side-bar">
         <div className="details">
@@ -60,7 +63,18 @@ class RightSidebar extends React.Component{
               <div>Members</div>
               <div><FontAwesomeIcon icon={membersArrow} /></div>
             </NavLink>
-            <Route path={membersPath} render={props => <RightSidebarMembersList {...props} users={this.props.users} members={members}/>}/>
+            <Route
+              path={membersPath}
+              render={props =>
+              <RightSidebarMembersList
+                {...props} users={this.props.users}
+                members={members}
+                admin={admin}
+                openModal={this.props.openModal}
+                currentUser={this.props.currentUser}
+                mainChannel={mainChannel}
+              />}
+            />
           </li>
           {deleteTab}
         </ul>

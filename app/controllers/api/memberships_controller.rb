@@ -39,9 +39,10 @@ class Api::MembershipsController < ApplicationController
   # end
   
   def destroy
+    # debugger
     @membership = Membership.find(params[:id])
     @membership.destroy
-    render json: ['Membership revoked']
+    render :destroy_show
   end
 
   private

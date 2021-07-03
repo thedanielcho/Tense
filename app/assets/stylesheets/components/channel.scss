@@ -294,6 +294,17 @@
             font-weight: 500;
             padding: 8px;
             padding-left: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            span{
+              font-size: 14px;
+              font-weight: 500;
+              font-style: italic;
+              color: #867086;
+              cursor: pointer;
+              align-items: flex-end;
+            }
           }
           > li:hover {
             background-color: rgb(90, 68, 90);
