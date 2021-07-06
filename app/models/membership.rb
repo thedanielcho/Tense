@@ -1,6 +1,6 @@
 class Membership < ApplicationRecord
 
-  validates :user_id, uniqueness: { scope: :memberable_id }
+  validates :user_id, uniqueness: { scope: [:memberable_id, :memberable_type] }
   validates :user_id, presence: true
   validates :memberable_id, :memberable_type, presence: true
 

@@ -21,6 +21,11 @@ class User < ApplicationRecord
   source: :memberable,
   source_type: "Channel"
 
+  has_many :direct_messages,
+  through: :memberships,
+  source: :memberable,
+  source_type: "DirectMessage"
+
   attr_reader :password
   # FIGVAPER
 
