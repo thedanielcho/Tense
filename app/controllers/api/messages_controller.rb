@@ -11,7 +11,14 @@ class Api::MessagesController < ApplicationController
   end
 
   def destroy
-
+    # debugger
+    @message = Message.find(params[:id])
+    if @message && @message.user == current_user
+      @message.destroy
+      render :show
+    else
+      render json: ["Not authorized to perform that action"], status: 401
+    end
   end
 
 end

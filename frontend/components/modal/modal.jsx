@@ -5,6 +5,7 @@ import ChannelCreateFormContainer from '../channels/channel_create_form_containe
 import ChannelDeleteFormContainer from '../channels/channel_delete_form_container';
 import ChannelEditFormContainer from '../channels/channel_edit_form_container';
 import MembershipDeleteFormContainer from '../right_sidebar/membership_delete_form_container';
+import MessageDeleteFormContainer from '../messages/message_delete_form_container';
 
 const Modal = ({modal, closeModal, history, key}) => {
   if(!modal){
@@ -24,6 +25,9 @@ const Modal = ({modal, closeModal, history, key}) => {
       break
     case 'memberDelete':
       component = <MembershipDeleteFormContainer membershipId={modal.target}/>
+      break
+    case 'messageDelete':
+      component = <MessageDeleteFormContainer message={modal.target} />
       break
     default:
       return null;

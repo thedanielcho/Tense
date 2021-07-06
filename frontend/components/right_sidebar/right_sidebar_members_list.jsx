@@ -1,7 +1,6 @@
 import React from 'react'
 
 const RightSidebarMembersList = (props) => {
-  debugger
   // let remove = props.admin ? <span onClick={() => props.openModal('channelDelete', member.id)}> remove</span> : ""
   // let remove = ""
   return (

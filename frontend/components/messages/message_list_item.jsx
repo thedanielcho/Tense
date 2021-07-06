@@ -7,6 +7,7 @@ const MessageListItem = (props) => {
       <p>{props.message.body}</p>
       <p>channel {props.message.messageableId}</p>
       <div ref={props.bottom} />
+      <div className="delete-button" >Delete</div>
     </li>
   )
 }

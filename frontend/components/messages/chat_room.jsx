@@ -3,6 +3,8 @@ import { extractDateTime } from "../../util/date_time_util";
 import { extractDate } from "../../util/date_util";
 import MessageForm from "./message_form";
 import MessageListItem from "./message_list_item";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 class ChatRoom extends React.Component{
   constructor(props){
@@ -129,14 +131,21 @@ class ChatRoom extends React.Component{
                 <div className="avatar"/> : <img src={window.defaultAvatar} alt="avatar" className="avatar" />;
                 lastUser = this.props.users[message.userId];
                 lastDate = extractDate(message.createdAt);
+                let deleteButton = (this.props.currentUser.id === message.userId) ? 
+                <div className="delete-button" onClick={() => this.props.openModal('messageDelete', message)}>
+                  <FontAwesomeIcon icon={faTrashAlt} />
+                </div> : <></>
                 return (
                   <li key={message.id} className={className}>
-                    {img}
-                    <div className="message-container">
-                      {user}
-                      <p>{message.body}</p>
-                      <div ref={this.bottom} />
+                    <div className="message-avatar">
+                      {img}
+                      <div className="message-container">
+                        {user}
+                        <p>{message.body}</p>
+                        <div ref={this.bottom} />
+                      </div>
                     </div>
+                    {deleteButton}
                   </li>
                 )
                 

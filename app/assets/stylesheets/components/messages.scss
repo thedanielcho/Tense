@@ -18,7 +18,11 @@
     word-break: break-word;
     display: flex;
     align-items: center;
-
+    justify-content: space-between;
+    .message-avatar{
+      display: flex;
+      align-items: center;
+    }
     .avatar{
       height: 30px;
       border-radius: 5px;
@@ -47,6 +51,9 @@
     p{
       padding: 3px;
     }
+    .delete-button{
+      display: none;
+    }
   
   }
   .first {
@@ -56,6 +63,14 @@
 
   li:hover{
     background-color: gray;
+    .delete-button{
+      display: block;
+      cursor: pointer;
+      color: #ff5a7f;
+      font-size: 18px;
+      font-style: italic;
+      padding: 3px;
+    }
   }
 
   
