@@ -1,8 +1,13 @@
 class Api::UsersController < ApplicationController
 
   def index 
-    @channel = Channel.find(params[:channel_id])
-    @users = @channel.users
+    if params[:channel_id]
+      @channel = Channel.find(params[:channel_id])
+      @users = @channel.users
+    else
+      @direct_message = DirectMessage.find(params[:direct_message_id])
+      @users = @direct_message.users
+    end
     render :index
   end
 

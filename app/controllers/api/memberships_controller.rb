@@ -1,8 +1,19 @@
 class Api::MembershipsController < ApplicationController
 
   def index
-    channel = Channel.find(params[:channel_id])
-    @memberships = Membership.all.where(memberable_id: channel.id)
+    if params[:channel_id]
+      channel = Channel.find(params[:channel_id])
+      @memberships = Membership.all.where(
+        memberable_id: channel.id,
+        memberable_type: "Channel",
+        )
+    else
+      direct_message = DirectMessage.find(params[:direct_message_id])
+      @memberships = Membership.all.where(
+        memberable_id: direct_message.id,
+        memberable_type: "DirectMessage"
+        )
+    end
     render :index
   end
 
@@ -14,7 +25,11 @@ class Api::MembershipsController < ApplicationController
       @membership.memberable_type = "Channel"
       @user = User.find(params[:membership][:user_id])
     else
-      #for dm's
+      # direct_message = DirectMessage.find(params[:direct_message_id])
+      # @membership = Membership.new(membership_params)
+      # @membership.memberable_id = direct_message.id
+      # @membership.memberable_type = "DirectMessage"
+      # @user = User.find(params[:membership][:user_id])
     end
     if @membership.save
       render :show

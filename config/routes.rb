@@ -18,6 +18,11 @@ Rails.application.routes.draw do
     end
     resources :memberships, only: :destroy
     resources :messages, only: [:update, :destroy, :create]
+    resources :direct_messages, only: [:index, :show, :create] do
+      resources :users, only: [:index]
+      resources :memberships, only: [:create, :index]
+      resources :messages, only: [:index]
+    end
     # bonus feature for searching
     # get '/channels/search', to: 'channels#search', as: 'channels_search'
 

@@ -1,8 +1,19 @@
 class Api::MessagesController < ApplicationController
 
   def index
-    channel = Channel.find(params[:channel_id])
-    @messages = Message.all.where(messageable_id: channel.id)
+    if params[:channel_id]
+      channel = Channel.find(params[:channel_id])
+      @messages = Message.all.where(
+        messageable_type: "Channel"
+        messageable_id: channel.id,
+        )
+    else
+      direct_message = DirectMessage.find(params[:direct_message_id])
+      @messages = Message.all.where(
+        messageable_type: "DirectMessage"
+        messageable_id: direct_message.id,
+        )
+    end
     render :index
   end
 
