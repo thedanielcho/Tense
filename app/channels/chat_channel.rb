@@ -1,8 +1,8 @@
 class ChatChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
-    chat_type = params[:type]
-    @chat = chat_type.constantize.find_by(id: params[:chatId])
+    @chat_type = params[:type]
+    @chat = @chat_type.constantize.find_by(id: params[:chatId])
     stream_for @chat if @chat
   end
   def speak(data)
@@ -10,7 +10,7 @@ class ChatChannel < ApplicationCable::Channel
       body: data["message"]["body"],
       user_id: data["message"]["user_id"],
       messageable_id: @chat.id,
-      messageable_type: "Channel"
+      messageable_type: @chat_type
     )
     socket = { 
       message: {

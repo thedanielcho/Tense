@@ -8,6 +8,10 @@
       "api/channels/channels.json.jbuilder",
       channels: Channel.all
     ).html_safe %>
+    window.currentDMs = <%= render(
+      "api/direct_messages/direct_messages.json.jbuilder",
+      direct_messages: User.second.direct_messages
+    ).html_safe %>
   </script>
 <% end %>
 <script type="text/javascript">

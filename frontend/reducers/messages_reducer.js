@@ -6,6 +6,7 @@ const messagesReducer = (state = {}, action) => {
   let newState;
   switch (action.type) {
     case RECEIVE_MESSAGES:
+      debugger
       newState = {};
       action.messages.forEach((message) => {
         newState[message.id] = message
@@ -14,7 +15,6 @@ const messagesReducer = (state = {}, action) => {
     case RECEIVE_MEMBERSHIP:
       return Object.assign({}, state, {[action.membershipInfo.membership.id]: action.membershipInfo.membership});
     case REMOVE_MESSAGE:
-      debugger
       newState = Object.assign({}, state);
       delete newState[action.message.id];
       return newState;

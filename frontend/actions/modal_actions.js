@@ -2,7 +2,6 @@
  export const OPEN_MODAL = "OPEN_MODAL";
 
 export const openModal = (modal, target) => {
-  debugger
   return {
     type: OPEN_MODAL,
     modal,

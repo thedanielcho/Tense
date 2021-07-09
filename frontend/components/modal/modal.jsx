@@ -11,7 +11,6 @@ const Modal = ({modal, closeModal, history, key}) => {
   if(!modal){
     return null;
   }
-  debugger
   let component;
   switch (modal.type) {
     case 'channelCreate':
@@ -32,7 +31,6 @@ const Modal = ({modal, closeModal, history, key}) => {
     default:
       return null;
   }
-  debugger
   return (
     <div className="modal-background" onClick={closeModal}>
       <div className="modal-child" onClick={e => e.stopPropagation()}>

@@ -6,7 +6,6 @@ import MessageDeleteForm from "./message_delete_form"
 
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   return {
     errors: state.errors,
     message: ownProps.message

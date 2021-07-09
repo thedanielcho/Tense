@@ -40,7 +40,6 @@ class ChannelCreateForm extends React.Component{
   }
 
   render(){
-    debugger
     let button = this.state.name.length > 1 ? 
     <button type='submit' >Create</button>
     : <button type='submit' disabled>Create</button>

@@ -6,58 +6,32 @@ import MessageListItem from "./message_list_item";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
-class ChatRoom extends React.Component{
+class ChatRoomDM extends React.Component{
   constructor(props){
     super(props);
     this.state = {newMessages: 0 };
     this.bottom = React.createRef();
-
-    
   }
 
   componentDidMount(){
-
-    
-    // this.setState({
-    //   messages: this.props.messages.slice()
-    // })
-    
-    this.props.requestAllMessages(this.props.channel.id)
+    this.props.requestAllMessages(this.props.directMessage.id)
     this.subscription = App.cable.subscriptions.create(
       { 
         channel: 'ChatChannel',
-        type: 'Channel',
-        chatId: this.props.channel.id,
+        type: 'DirectMessage',
+        chatId: this.props.directMessage.id,
       },
       {
         received: data => {
           this.setState.call(this, ({
             newMessages: this.state.newMessages + 1}));
-          // this.props.requestAllMessages(this.props.channel.id)
         },
         speak: data => {
           return this.subscription.perform("speak", data);
         },
-        // load: () => {
-        //   return this.subscription.perform("load");
-        // },
-        // unsubscribed: () => {
-        //   return this.subscription.perform("unsubscribed");
-        // }
       }
     );
   }
-
-  // loadChat(e) {
-  //   e.preventDefault();
-  //   this.subscription.load();
-  // }
-
-  // handleUpdate(){
-  //   this.setState({
-  //     messages: this.props.messages.slice()
-  //   })
-  // }
 
   componentDidUpdate() {
   
@@ -65,54 +39,19 @@ class ChatRoom extends React.Component{
       this.setState({
         newMessages: 0
       })
-      this.props.requestAllUsers(this.props.channel.id)
-      this.props.requestAllMessages(this.props.channel.id)
+      this.props.requestAllMessages(this.props.directMessage.id)
     }
     if(this.bottom.current){
       this.bottom.current.scrollIntoView();
     }
   }
 
-  componentWillUnmount(){
-    // this.subscription.unsubscribed()
-  }
-
   render(){
-    // if(this.state.messages[0] !== this.props.messages[0]){
-    //   this.handleUpdate()
-    // }
-    // const messageList = this.state.messages.map((message)=>{
-    //   return (
-    //     <MessageListItem message={message} users={this.props.users} bottom={this.bottom}/>
-    //   );
-    // });
-    // let channelView = (<ul className="message-list" ref={this.bottom}></ul>);
-    // if(this.state.messages[0] === this.props.messages[0]){
-    //   channelView = (
-    //     <ul className="message-list" ref={this.bottom}>
-    //       {this.state.messages.map((message) => {
-    //         let user = (lastUser === this.props.users[message.userId]) ?
-    //         <></> : <h1>{this.props.users[message.userId].displayName}</h1>;
-    //         lastUser = this.props.users[message.userId]
-    //         return (
-    //           <li key={message.id}>
-    //             {user}
-    //             <p>{message.body}</p>
-    //             <p>channel {message.messageableId}</p>
-    //             <div ref={this.bottom} />
-    //           </li>
-    //         )
-    //       })}
-    //     </ul>
-    //   )
-    // }
-
     let lastUser;
     let lastDate;
-    
     let messagesList = this.props.messages.slice();
     messagesList.reverse()
-    if(this.props.messages.length > 0  && this.props.channel.id !== this.props.messages[0].messageableId){
+    if(this.props.messages.length > 0  && this.props.directMessage.id !== this.props.messages[0].messageableId){
       return null;
     }
     return(
@@ -153,11 +92,11 @@ class ChatRoom extends React.Component{
               }
             })}
           </ul>
-        <MessageForm channel={this.props.channel} subscription={this.subscription} currentUser={this.props.currentUser}/>
+        <MessageForm directMessage={this.props.directMessage} subscription={this.subscription} currentUser={this.props.currentUser}/>
       </div>
     )
   }
+
 }
 
-
-export default ChatRoom;
+export default ChatRoomDM

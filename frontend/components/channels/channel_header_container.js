@@ -21,7 +21,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     requestAllChannels: () => dispatch(requestAllChannels()),
     requestAllUsers: (channelId) => dispatch(requestAllUsers(channelId)),
     requestMemberships: (channelId) => dispatch(requestMemberships(channelId)),
-    updateChanngel: (channelId, channel) => dispatch(updateChannel(channelId, channel)),
+    updateChannel: (channelId, channel) => dispatch(updateChannel(channelId, channel)),
     openModal: (modal) => dispatch(openModal(modal))
   }
 }

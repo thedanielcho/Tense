@@ -3,6 +3,7 @@ export const RECEIVE_MESSAGES = "RECEIVE_MESSAGES";
 export const REMOVE_MESSAGE = "REMOVE_MESSAGE";
 
 const receiveMessages = (messages) => {
+  debugger
   return {
     type: RECEIVE_MESSAGES,
     messages
@@ -10,12 +11,13 @@ const receiveMessages = (messages) => {
 }
 
 const removeMessage = (message) => {
-  debugger
   return {
     type: REMOVE_MESSAGE,
     message
   }
 }
+
+
 
 export const requestAllMessages = (channelId) => (dispatch) => {
   return (
@@ -24,8 +26,15 @@ export const requestAllMessages = (channelId) => (dispatch) => {
   )
 }
 
-export const destroyMessage = (id) => (dispatch) => {
+export const requestAllDMMessages = (directMessageId) => (dispatch) => {
   debugger
+  return (
+    APIUtils.fetchDMMessage(directMessageId)
+      .then((messages) => dispatch(receiveMessages(messages)))
+  )
+}
+
+export const destroyMessage = (id) => (dispatch) => {
   return (
     APIUtils.destroyMessage(id)
       .then((message) => dispatch(removeMessage(message)))

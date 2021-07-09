@@ -4,15 +4,15 @@ class Api::MessagesController < ApplicationController
     if params[:channel_id]
       channel = Channel.find(params[:channel_id])
       @messages = Message.all.where(
-        messageable_type: "Channel"
-        messageable_id: channel.id,
-        )
+        messageable_type: "Channel",
+        messageable_id: channel.id
+      )
     else
       direct_message = DirectMessage.find(params[:direct_message_id])
       @messages = Message.all.where(
-        messageable_type: "DirectMessage"
-        messageable_id: direct_message.id,
-        )
+        messageable_type: "DirectMessage",
+        messageable_id: direct_message.id
+      )
     end
     render :index
   end
@@ -22,7 +22,6 @@ class Api::MessagesController < ApplicationController
   end
 
   def destroy
-    # debugger
     @message = Message.find(params[:id])
     if @message && @message.user == current_user
       @message.destroy

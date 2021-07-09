@@ -54,7 +54,6 @@ class Api::MembershipsController < ApplicationController
   # end
   
   def destroy
-    # debugger
     @membership = Membership.find(params[:id])
     @membership.destroy
     render :destroy_show

@@ -4,7 +4,6 @@ import { destroyMembership } from "../../actions/membership_actions";
 import MembershipDeleteForm from "./membership_delete_form";
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   return {
     errors: state.errors,
     membershipId: ownProps.membershipId

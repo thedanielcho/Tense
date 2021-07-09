@@ -13,7 +13,6 @@ const receiveUser = (user) => {
 }
 
 const removeUser = (membership) => {
-  debugger
   return {
     type: REMOVE_USER,
     membership
@@ -21,7 +20,6 @@ const removeUser = (membership) => {
 }
 
 const recieveMemberships = (memberships) => {
-  debugger
   return {
     type: RECEIVE_MEMBERSHIPS,
     memberships

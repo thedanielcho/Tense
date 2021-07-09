@@ -11,7 +11,6 @@ const membershipsReducer = (state = {}, action) => {
       })
       return newState;
     case REMOVE_USER:
-      debugger
       newState = Object.assign({}, state);
       delete newState[action.membership.id];
       return newState;

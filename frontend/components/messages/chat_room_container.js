@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import { destroyMessage, requestAllMessages } from "../../actions/message_actions"
+import { requestAllMessages } from "../../actions/message_actions"
 import { openModal } from "../../actions/modal_actions"
 import { requestAllUsers } from "../../actions/user_actions"
 import ChatRoom from "./chat_room"

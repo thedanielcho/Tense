@@ -11,7 +11,6 @@ class MembershipDeleteForm extends React.Component{
   }
 
   handleSubmit(e){
-    debugger
     e.preventDefault();
     this.props.destroyMembership(this.props.membershipId).then(this.props.closeModal)
   }

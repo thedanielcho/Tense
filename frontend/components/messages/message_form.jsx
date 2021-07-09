@@ -5,7 +5,6 @@ import snakifyObject from '../../util/snakify_util';
 
 class MessageForm extends React.Component{
   constructor(props){
-    
     super(props);
     this.state = {
       body: "",
@@ -34,7 +33,7 @@ class MessageForm extends React.Component{
   }
 
   render(){
-
+    let placeholder = this.props.channel ? this.props.channel.name : Object.values(this.props.directMessage.users)[0].displayName
     return(
       <div>
         <form className="message-form" onSubmit={this.handleSubmit}>
@@ -42,7 +41,7 @@ class MessageForm extends React.Component{
             type="text"
             id="message"
             onChange={this.handleInput("body")}
-            placeholder={`Send a message to ${this.props.channel.name}`}
+            placeholder={`Send a message to ${placeholder}`}
             value={this.state.body}
             autoComplete="off"
           />

@@ -11,7 +11,6 @@ class ChannelDeleteForm extends React.Component{
   }
 
   handleSubmit(e){
-    debugger
     e.preventDefault();
     let splitPath = this.props.history.location.pathname.split("/");
     splitPath[2] = "1";

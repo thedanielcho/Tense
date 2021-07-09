@@ -19,14 +19,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const channels = {}
   window.currentChannels.forEach((channel) => {
     channels[channel.id] = channel
-  })
+  });
+  const directMessages = {};
+  if(window.currentDMs){
+    window.currentDMs.forEach((directMessage) => {
+      directMessages[directMessage.id] = directMessage
+    });
+  }
+  
   const preloadedState = {
     entities: {
-      channels: channels 
+      channels: channels,
+      directMessages: directMessages
     }
-  }
-  delete window.currentChannels;
+  };
 
+  delete window.currentChannels;
+  delete window.currentDMs;
+  
+  
   if (window.currentUser) {
     preloadedState.entities.users = { [window.currentUser.id]: window.currentUser };
     preloadedState.session =  { id: window.currentUser.id }
