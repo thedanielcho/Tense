@@ -1,5 +1,6 @@
 import { connect } from "react-redux"
 import { createChannel, requestAllChannels } from "../../actions/channel_actions"
+import { requestAllDirectMessages } from "../../actions/direct_message_actions"
 import { requestMemberships } from "../../actions/membership_actions"
 import { openModal } from "../../actions/modal_actions"
 import { requestAllUsers } from "../../actions/user_actions"
@@ -10,8 +11,9 @@ const mapStateToProps = (state, ownProps) => {
   return {
     currentUser: state.entities.users[state.session.id],
     channels: Object.values(state.entities.channels),
+    directMessages: Object.values(state.entities.directMessages),
     pathName: ownProps.history.location.pathname,
-    channel: state.entities.channels[ownProps.match.params.viewId],
+    // channel: state.entities.channels[ownProps.match.params.viewId],
     memberships: state.entities.memberships
   }
 }
@@ -22,7 +24,8 @@ const mapDispatchToProps = (dispatch) => {
     requestAllChannels: () => dispatch(requestAllChannels()),
     requestAllUsers: (channelId) => dispatch(requestAllUsers(channelId)),
     requestMemberships: (channelId) => dispatch(requestMemberships(channelId)),
-    openModal: (modal) => dispatch(openModal(modal))
+    openModal: (modal) => dispatch(openModal(modal)),
+    requestAllDirectMessages: (modal) => dispatch(requestAllDirectMessages())
   }
 }
 

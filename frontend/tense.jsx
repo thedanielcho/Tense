@@ -25,8 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
     window.currentDMs.forEach((directMessage) => {
       directMessages[directMessage.id] = directMessage
     });
+    delete window.currentDMs;
   }
-  
+  window.currentDMs = undefined;
   const preloadedState = {
     entities: {
       channels: channels,
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   delete window.currentChannels;
-  delete window.currentDMs;
+  
   
   
   if (window.currentUser) {

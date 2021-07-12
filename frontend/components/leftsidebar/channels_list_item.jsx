@@ -13,11 +13,14 @@ class ChannelsListItem extends React.Component{
  }
 
   handleRedirect(){
-    this.props.handleRedirect(this.props.channel.id)
+    this.props.handleRedirect(this.props.channel.id, "channel")
   }
 
   render(){
-    let activeClass = (this.props.pathName.split("/")[2] === this.props.channel.id.toString()) ? 'active' : '';
+    let activeClass = (
+      this.props.pathName.split("/")[2] === this.props.channel.id.toString()
+      && this.props.pathName.split("/")[1] === "channel"
+      ) ? 'active' : '';
 
     return(
       <a onClick={this.handleRedirect}>

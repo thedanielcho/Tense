@@ -1,0 +1,212 @@
+.dm-view {
+  display: grid;
+  // grid-template-areas:
+  //     "header header header"
+  //     "left-sidebar channel channel"
+  //     "left-sidebar channel channel";
+  grid-template-columns: 225px 1fr;
+  grid-template-rows: 40px 1fr;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100vw;
+  height: 100vh;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .example {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+
+.join-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .join-button{
+    background-color: #302735;
+    border: 1px solid gray;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    color: white;
+    height: 40px;
+    width: 150px;
+    border-radius: 5px;
+  }
+}
+
+.left-sidebar {
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  grid-row: 2 / span 2;
+  grid-column: 1 / 1;
+  background-color: rgb(54, 41, 54);
+  color: white;
+  border-right: 1px solid rgb(99, 99, 99);
+  overflow: auto;
+
+  .display-name-container{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(99, 99, 99);
+
+    .display-name{
+      padding-left: 10px;
+      font-weight: 700;
+    }
+  }
+  .sidebar-elements{
+    .dm-list{
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+      list-style: inside;
+      list-style-type: none;
+      
+      li {
+        display: flex;
+        align-items: center;
+        padding-left: 25px;
+        padding-bottom: 7px;
+        padding-top: 7px;
+
+        svg {
+          font-size: 10px;
+          padding: 5px;
+          border-radius: 3px;
+          margin-right: 5px;
+        }
+
+      }
+
+      a{
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+      }
+
+      a:hover{
+        background-color: gray;
+      }
+
+      a > .active{
+        background-color: rgb(135, 82, 151);
+      }
+
+      a > .active:hover{
+        background-color: rgb(135, 82, 151);
+      }
+
+      img{
+        height: 18px;
+        margin-right: 5px;
+        border-radius: 3px;
+      }
+    }
+  }
+}
+
+.header {
+  grid-row: 1;
+  grid-column: 1 / span 6;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(48, 39, 53);
+  padding: 5px;
+  border-bottom: 1px solid rgb(99, 99, 99);
+  .logo {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    img{
+      height: 20px;
+      padding-right: 5px;
+    }
+  }
+  button{
+    width: 70px;
+    margin-left: 15px;
+    border: 1px solid #565656;
+    height: 30px;
+    background-color: #302735;
+    color: white;
+    border-radius: 5px;
+  }
+  button:hover{
+    background-color: rgb(135, 82, 151);
+  }
+}
+
+.directMessage {
+  background-color: rgb(58, 56, 59);
+  grid-column: 2 / span 6;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  .directMessage-main{
+    grid-row: 1 / span 2;
+    display: grid;
+    grid-column: 1 / span 2;
+    grid-template-rows: 60px 1fr;
+    header {
+      display: flex;
+      justify-content: space-between;
+      background-color: rgb(58, 56, 59);
+      border-bottom: 1px solid gray;
+      align-items: center;
+      padding: 10px;
+      font-weight: 700;
+      color: white;
+      span{
+        font-size: 14px;
+        font-weight: 500;
+        font-style: italic;
+        color: #867086;
+        cursor: pointer;
+      }
+      ul {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+
+        > li {
+          padding: 5px;
+          margin: 5px;
+          border-radius: 3px;
+        }
+
+        > li:hover {
+          background-color: rgb(170, 162, 162);
+        }
+
+      }
+      svg{
+        font-size: 20px;
+        color: white;
+      }
+      .activated {
+        background-color: rgb(122, 116, 116);
+      }
+    }
+
+  }
+
+  .thin{
+    grid-column: 1;
+  }
+
+  .wide{
+    grid-column: 1 / span 2;
+  }
+  
+
+
+}
+

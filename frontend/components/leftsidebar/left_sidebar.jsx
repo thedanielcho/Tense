@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router';
 import ChannelsList from './channels_list';
+import DirectMessagesList from './directMessages_list';
 
 class LeftSidebar extends React.Component{
   constructor(props){
@@ -12,15 +13,16 @@ class LeftSidebar extends React.Component{
     // this.props.requestAllChannels()
   }
 
-  handleRedirect(channelId){
+  handleRedirect(id, type){
     let splitPath = this.props.pathName.split("/");
-    splitPath[2] = channelId;
+    splitPath[1] = type
+    splitPath[2] = id;
     let redirectPath = splitPath.join("/");
-
     this.props.history.push(redirectPath);
-
-    this.props.requestAllUsers(channelId);
-    this.props.requestMemberships(channelId)
+    if(type === "channel"){
+      this.props.requestMemberships(id);
+      this.props.requestAllUsers(id);
+    }
    }
 
   render(){
@@ -35,6 +37,11 @@ class LeftSidebar extends React.Component{
             pathName={this.props.pathName}
             handleRedirect={this.handleRedirect}
             openModal={this.props.openModal}
+          />
+          <DirectMessagesList
+            directMessages={this.props.directMessages}
+            pathName={this.props.pathName}
+            handleRedirect={this.handleRedirect}
           />
         </ul>
       </div>

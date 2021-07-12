@@ -10,14 +10,19 @@
     ).html_safe %>
     window.currentDMs = <%= render(
       "api/direct_messages/direct_messages.json.jbuilder",
-      direct_messages: User.second.direct_messages
+      direct_messages: current_user.direct_messages
     ).html_safe %>
   </script>
-<% end %>
-<script type="text/javascript">
+<% else %>
+  <script type="text/javascript">
+    window.currentDMs = <%= render(
+      "api/direct_messages/direct_messages.json.jbuilder",
+      direct_messages: User.second.direct_messages
+    ).html_safe %>
     window.currentChannels = <%= render(
       "api/channels/channels.json.jbuilder",
       channels: Channel.all
     ).html_safe %>
-</script>
+  </script>
+<% end %>
 <main id="root"></main>
