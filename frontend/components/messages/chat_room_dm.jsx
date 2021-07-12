@@ -11,9 +11,11 @@ class ChatRoomDM extends React.Component{
     super(props);
     this.state = {newMessages: 0 };
     this.bottom = React.createRef();
+    
   }
 
   componentDidMount(){
+    debugger
     this.props.requestAllMessages(this.props.directMessage.id)
     this.subscription = App.cable.subscriptions.create(
       { 
@@ -34,7 +36,24 @@ class ChatRoomDM extends React.Component{
   }
 
   componentDidUpdate() {
-  
+    if(!this.subscription.identifier.split(",")[2].includes(`${this.props.directMessage.id}`)){
+      this.subscription = App.cable.subscriptions.create(
+        { 
+          channel: 'ChatChannel',
+          type: 'DirectMessage',
+          chatId: this.props.directMessage.id,
+        },
+        {
+          received: data => {
+            this.setState.call(this, ({
+              newMessages: this.state.newMessages + 1}));
+          },
+          speak: data => {
+            return this.subscription.perform("speak", data);
+          },
+        }
+      );
+    }
     if(this.state.newMessages > 0){
       this.setState({
         newMessages: 0

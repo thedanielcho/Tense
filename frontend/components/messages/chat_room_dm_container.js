@@ -4,6 +4,7 @@ import { openModal } from "../../actions/modal_actions"
 import ChatRoomDM from "./chat_room_dm"
 
 const mapStateToProps = (state, ownProps) => {
+  debugger
   return {
     directMessage: state.entities.directMessages[ownProps.match.params.directMessageId],
     currentUser: state.entities.users[state.session.id],

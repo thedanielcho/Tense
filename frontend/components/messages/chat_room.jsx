@@ -8,6 +8,7 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 class ChatRoom extends React.Component{
   constructor(props){
+    debugger
     super(props);
     this.state = {newMessages: 0 };
     this.bottom = React.createRef();
@@ -17,7 +18,7 @@ class ChatRoom extends React.Component{
 
   componentDidMount(){
 
-    
+    debugger
     // this.setState({
     //   messages: this.props.messages.slice()
     // })

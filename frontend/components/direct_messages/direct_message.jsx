@@ -9,6 +9,7 @@ class DirectMessage extends React.Component{
   }
 
   componentDidMount(){
+    debugger
     this.props.requestAllUsers(this.props.directMessage.id);
     // this.props.requestAllMessages(this.props.directMessage.id);
   }

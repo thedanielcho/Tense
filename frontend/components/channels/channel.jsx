@@ -24,6 +24,7 @@ class Channel extends React.Component{
   }
 
   componentDidMount(){
+    debugger
     this.props.requestAllUsers(this.props.channel.id)
     this.props.requestMemberships(this.props.channel.id)
     this.props.requestAllMessages(this.props.channel.id)
