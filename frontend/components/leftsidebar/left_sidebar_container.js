@@ -2,8 +2,9 @@ import { connect } from "react-redux"
 import { createChannel, requestAllChannels } from "../../actions/channel_actions"
 import { requestAllDirectMessages } from "../../actions/direct_message_actions"
 import { requestMemberships } from "../../actions/membership_actions"
+import { requestAllDMMessages } from "../../actions/message_actions"
 import { openModal } from "../../actions/modal_actions"
-import { requestAllUsers } from "../../actions/user_actions"
+import { requestAllDMUsers, requestAllUsers } from "../../actions/user_actions"
 import LeftSidebar from "./left_sidebar"
 
 
@@ -25,7 +26,9 @@ const mapDispatchToProps = (dispatch) => {
     requestAllUsers: (channelId) => dispatch(requestAllUsers(channelId)),
     requestMemberships: (channelId) => dispatch(requestMemberships(channelId)),
     openModal: (modal) => dispatch(openModal(modal)),
-    requestAllDirectMessages: (modal) => dispatch(requestAllDirectMessages())
+    requestAllDirectMessages: () => dispatch(requestAllDirectMessages()),
+    requestAllDMMessages: (id) => dispatch(requestAllDMMessages(id)),
+    requestAllDMUsers: (dmId) => dispatch(requestAllDMUsers(dmId))
   }
 }
 

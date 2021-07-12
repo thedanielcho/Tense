@@ -26,7 +26,8 @@ export const requestDirectMessage = () => (dispatch) => (
     .then((directMessage) => dispatch(receiveDirectMessage(directMessage)))
 )
 
-export const createDirectMessage = () => (userId) => {
+export const createDirectMessage = (userId) => (dispatch) => {
+  debugger
   return (
     APIUtils.createDM(userId)
       .then((directMessage) => dispatch(receiveDirectMessage(directMessage)))

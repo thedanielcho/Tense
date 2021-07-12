@@ -18,7 +18,7 @@ class DirectMessagesListItem extends React.Component{
       this.props.pathName.split("/")[2] === this.props.directMessage.id.toString()
       && this.props.pathName.split("/")[1] === "dm"
       ) ? 'active' : '';
-    let name = this.props.directMessage.users[1].displayName;
+    let name = Object.values(this.props.directMessage.users)[0].displayName;
     return(
       <a onClick={this.handleRedirect}>
         <li className={activeClass}>

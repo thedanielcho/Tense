@@ -14,3 +14,10 @@ export const requestAllUsers = (channelId) => (dispatch) => {
       .then((users) => dispatch(receiveAllUsers(users)))
   )
 }
+
+export const requestAllDMUsers = (dmId) => (dispatch) => {
+  return(
+    APIUtils.fetchAllDMUsers(dmId)
+      .then((users) => dispatch(receiveAllUsers(users)))
+  )
+}

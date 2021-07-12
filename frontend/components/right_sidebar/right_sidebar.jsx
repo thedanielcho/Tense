@@ -9,7 +9,17 @@ import { faTimes, faChevronDown, faChevronRight, faTrashAlt } from '@fortawesome
 class RightSidebar extends React.Component{
 
   constructor(props){
-    super(props)
+    super(props);
+    this.handleRedirect = this.handleRedirect.bind(this);
+
+  }
+
+  handleRedirect(id){
+    let splitPath = this.props.pathName.split("/");
+    splitPath[1] = "dm"
+    splitPath[2] = id;
+    let redirectPath = splitPath.join("/");
+    this.props.history.push(redirectPath);
   }
 
   render(){
@@ -73,6 +83,9 @@ class RightSidebar extends React.Component{
                 openModal={this.props.openModal}
                 currentUser={this.props.currentUser}
                 mainChannel={mainChannel}
+                handleRedirect={this.handleRedirect}
+                createDirectMessage={this.props.createDirectMessage}
+                directMessages={this.props.directMessages}
               />}
             />
           </li>

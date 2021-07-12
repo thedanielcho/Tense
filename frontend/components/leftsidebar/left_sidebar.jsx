@@ -22,6 +22,9 @@ class LeftSidebar extends React.Component{
     if(type === "channel"){
       this.props.requestMemberships(id);
       this.props.requestAllUsers(id);
+    } else{
+      this.props.requestAllDMMessages(id);
+      this.props.requestAllDMUsers(id);
     }
    }
 

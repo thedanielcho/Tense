@@ -23,7 +23,7 @@ class Api::DirectMessagesController < ApplicationController
         memberable_type: "DirectMessage"
       )
       Membership.create(
-        user_id: params.user.id,
+        user_id: params[:user_id],
         memberable_id: @direct_message.id,
         memberable_type: "DirectMessage"
       )

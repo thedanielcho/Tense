@@ -21,7 +21,6 @@ class DirectMessagesList extends React.Component{
 
   render(){
     let caret = this.state.active ? <FontAwesomeIcon icon={faCaretDown} /> : <FontAwesomeIcon icon={faCaretRight} />
-
     let messageList = (this.state.active) ? 
       <ul className="dm-list">
         {this.props.directMessages.map((directMessage) => {
