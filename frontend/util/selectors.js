@@ -1,18 +1,19 @@
 export const getChannelUsers = (memberships, users) => {
-  let channelUsers = [];
+  debugger
+  let channelUsers = {};
   Object.values(users).forEach(user => {
     if(memberships[user.membershipId]){
-      channelUsers.push(user)
+      channelUsers[user.id] = user
     }
   })
   return channelUsers;
 }
 
 export const getDMUsers = (directMessage, currentUser) => {
-  let dmUsers = [];
+  let dmUsers = {};
   Object.values(directMessage.users).forEach(user=>{
-    dmUsers.push(user)
+    dmUsers[user.id] = user
   })
-  dmUsers.push(currentUser)
+  dmUsers[currentUser.id] = currentUser
   return dmUsers;
 }

@@ -11,8 +11,6 @@ class ChatRoom extends React.Component{
     super(props);
     this.state = {newMessages: 0 };
     this.bottom = React.createRef();
-
-    
   }
 
   componentDidMount(){
@@ -68,46 +66,12 @@ class ChatRoom extends React.Component{
     }
   }
 
-  componentWillUnmount(){
-    // this.subscription.unsubscribed()
-  }
-
   render(){
-    // if(this.state.messages[0] !== this.props.messages[0]){
-    //   this.handleUpdate()
-    // }
-    // const messageList = this.state.messages.map((message)=>{
-    //   return (
-    //     <MessageListItem message={message} users={this.props.users} bottom={this.bottom}/>
-    //   );
-    // });
-    // let channelView = (<ul className="message-list" ref={this.bottom}></ul>);
-    // if(this.state.messages[0] === this.props.messages[0]){
-    //   channelView = (
-    //     <ul className="message-list" ref={this.bottom}>
-    //       {this.state.messages.map((message) => {
-    //         let user = (lastUser === this.props.users[message.userId]) ?
-    //         <></> : <h1>{this.props.users[message.userId].displayName}</h1>;
-    //         lastUser = this.props.users[message.userId]
-    //         return (
-    //           <li key={message.id}>
-    //             {user}
-    //             <p>{message.body}</p>
-    //             <p>channel {message.messageableId}</p>
-    //             <div ref={this.bottom} />
-    //           </li>
-    //         )
-    //       })}
-    //     </ul>
-    //   )
-    // }
-    
     let lastUser;
     let lastDate;
     
     let messagesList = this.props.messages.slice();
     messagesList.reverse()
-    debugger
     if(this.props.messages.length > 0  && this.props.channel.id !== this.props.messages[0].messageableId){
       return null;
     }
