@@ -8,7 +8,6 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 class ChatRoom extends React.Component{
   constructor(props){
-    debugger
     super(props);
     this.state = {newMessages: 0 };
     this.bottom = React.createRef();
@@ -17,12 +16,6 @@ class ChatRoom extends React.Component{
   }
 
   componentDidMount(){
-
-    debugger
-    // this.setState({
-    //   messages: this.props.messages.slice()
-    // })
-    
     this.props.requestAllMessages(this.props.channel.id)
     this.subscription = App.cable.subscriptions.create(
       { 
@@ -34,33 +27,34 @@ class ChatRoom extends React.Component{
         received: data => {
           this.setState.call(this, ({
             newMessages: this.state.newMessages + 1}));
-          // this.props.requestAllMessages(this.props.channel.id)
         },
         speak: data => {
           return this.subscription.perform("speak", data);
         },
-        // load: () => {
-        //   return this.subscription.perform("load");
-        // },
-        // unsubscribed: () => {
-        //   return this.subscription.perform("unsubscribed");
-        // }
       }
     );
   }
 
-  // loadChat(e) {
-  //   e.preventDefault();
-  //   this.subscription.load();
-  // }
-
-  // handleUpdate(){
-  //   this.setState({
-  //     messages: this.props.messages.slice()
-  //   })
-  // }
-
   componentDidUpdate() {
+    if(!this.subscription.identifier.split(",")[2].includes(`${this.props.channel.id}`)){
+      this.subscription = App.cable.subscriptions.create(
+        { 
+          channel: 'ChatChannel',
+          type: 'Channel',
+          chatId: this.props.channel.id,
+        },
+        {
+          received: data => {
+            this.setState.call(this, ({
+              newMessages: this.state.newMessages + 1}));
+          },
+          speak: data => {
+            return this.subscription.perform("speak", data);
+          },
+        }
+      );
+      this.props.requestAllMessages(this.props.channel.id)
+    }
   
     if(this.state.newMessages > 0){
       this.setState({
@@ -107,12 +101,13 @@ class ChatRoom extends React.Component{
     //     </ul>
     //   )
     // }
-
+    
     let lastUser;
     let lastDate;
     
     let messagesList = this.props.messages.slice();
     messagesList.reverse()
+    debugger
     if(this.props.messages.length > 0  && this.props.channel.id !== this.props.messages[0].messageableId){
       return null;
     }

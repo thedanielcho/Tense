@@ -24,7 +24,6 @@ class Channel extends React.Component{
   }
 
   componentDidMount(){
-    debugger
     this.props.requestAllUsers(this.props.channel.id)
     this.props.requestMemberships(this.props.channel.id)
     this.props.requestAllMessages(this.props.channel.id)
@@ -42,9 +41,7 @@ class Channel extends React.Component{
   render(){
     let width = (this.props.pathName.includes('sidebar')) ?
     "channel-main thin" : "channel-main wide";
-    
     let channelView;
-
     if(this.props.currentUser.membershipId &&
       Object.keys(this.props.memberships).includes(this.props.currentUser.membershipId.toString())){
 

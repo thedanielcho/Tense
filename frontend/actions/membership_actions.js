@@ -48,7 +48,6 @@ export const destroyMembership = (membershipId) => (dispatch) => {
 }
 
 export const requestMemberships = (channelId) => (dispatch) => {
-
   return (
     APIUtils.fetchMemberships(channelId)
       .then((memberships) => dispatch(recieveMemberships(memberships)))

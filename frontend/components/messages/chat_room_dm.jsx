@@ -15,7 +15,6 @@ class ChatRoomDM extends React.Component{
   }
 
   componentDidMount(){
-    debugger
     this.props.requestAllMessages(this.props.directMessage.id)
     this.subscription = App.cable.subscriptions.create(
       { 
