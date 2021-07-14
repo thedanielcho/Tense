@@ -20,8 +20,12 @@ class Splash extends React.Component{
   render(){
     return(
       <div className="splash">
-        <SplashHeader handleDemo={this.handleDemo} />
-        <SplashBody />
+        <SplashHeader
+          handleDemo={this.handleDemo}
+          logout={this.props.logout}
+          currentUser={this.props.currentUser}
+        />
+        <SplashBody currentUser={this.props.currentUser} />
         <SplashFooter />
       </div>
     )

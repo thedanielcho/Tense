@@ -371,7 +371,6 @@
         }
       }
     }
-
     .details-list{
       a{
         font-weight: 500;
@@ -380,6 +379,8 @@
         padding: 9px;
         text-decoration: none;
         color: white;
+        // overflow: auto;
+        // max-height: calc(100vh - 151px);
         div {
           padding: 10px;
         }
@@ -389,7 +390,7 @@
         border-bottom: 1px solid gray;
 
         > .members-list {
-          max-height: calc(100vh - 210px);
+          max-height: calc(100vh - 281px);
           display: flex;
           flex-direction: column;
           overflow: auto;

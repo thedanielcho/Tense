@@ -3,6 +3,7 @@ import SplashHeader from "./splash_header"
 import { demoLogin, logout } from '../../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => {
+  debugger
   return {
     currentUser: state.entities.users[state.session.id],
     currentChannel: Object.values(state.entities.channels)[0]
