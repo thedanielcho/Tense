@@ -7,6 +7,12 @@ class RightSidebarMembersListItem extends React.Component{
   }
 
   handleRedirect(){
+    debugger
+    if(this.props.member == this.props.currentUser){
+      debugger
+      return null
+    }
+    debugger
     let directMessageId
     this.props.directMessages.forEach(dm => {
       if(Object.values(dm.users)[0].id === this.props.member.id){

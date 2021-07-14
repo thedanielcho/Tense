@@ -19,7 +19,7 @@ class Header extends React.Component{
           <img src={window.tempIcon} alt="temp icon" />
           <h2>TENSE</h2>
         </NavLink>
-        <SearchBarContainer />
+        <SearchBarContainer pathName={this.props.pathName} history={this.props.history} />
         <button onClick={this.handleLogout}>Log Out</button>
       </div>
     )

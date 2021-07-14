@@ -65,6 +65,7 @@ class ChatRoomDM extends React.Component{
   }
 
   render(){
+    debugger
     let lastUser;
     let lastDate;
     let messagesList = this.props.messages.slice();
