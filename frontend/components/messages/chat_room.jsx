@@ -60,6 +60,7 @@ class ChatRoom extends React.Component{
       })
       this.props.requestAllUsers(this.props.channel.id)
       this.props.requestAllMessages(this.props.channel.id)
+      this.props.requestMemberships(this.props.channel.id)
     }
     if(this.bottom.current){
       this.bottom.current.scrollIntoView();

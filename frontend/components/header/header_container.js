@@ -5,6 +5,8 @@ import Header from "./header"
 const mapStateToProps = (state, ownProps) => {
   return {
     user: state.entities.users[state.session.id],
+    users: state.entities.users,
+    channels: state.entities.channels
   }
 }
 

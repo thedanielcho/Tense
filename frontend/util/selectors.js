@@ -1,11 +1,17 @@
 export const getChannelUsers = (memberships, users) => {
-  debugger
   let channelUsers = {};
-  Object.values(users).forEach(user => {
+  for(let i = 0; i < Object.values(users).length; i++){
+    let user = Object.values(users)[i];
     if(memberships[user.membershipId]){
       channelUsers[user.id] = user
     }
-  })
+  }
+  // Object.values(users).forEach(user => {
+  //   if(memberships[user.membershipId]){
+  //     channelUsers[user.id] = user
+  //     debugger
+  //   }
+  // })
   return channelUsers;
 }
 

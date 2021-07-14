@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => {
   let channelUsers = getChannelUsers(state.entities.memberships, state.entities.users)
   return {
     channel: state.entities.channels[ownProps.match.params.channelId],
-    users: channelUsers,
+    users: Object.values(channelUsers),
     pathName: ownProps.history.location.pathname,
     memberships: state.entities.memberships,
     currentUser: state.entities.users[state.session.id],
