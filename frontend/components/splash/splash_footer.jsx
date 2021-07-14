@@ -17,7 +17,7 @@ class SplashFooter extends React.Component{
               <a href="https://github.com/thedanielcho" target="_blank">
                 <img src={window.gitHubLogo} alt="gitHub logo" />
               </a>
-              <a href="https://www.linkedin.com/feed/" target="_blank">
+              <a href="https://www.linkedin.com/in/daniel-cho-376110189/" target="_blank">
                 <img src={window.linkedInLogo} alt="linkedin Logo" />
               </a>
             </li>

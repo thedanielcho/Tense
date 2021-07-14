@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import LinksTab from './links';
 import SearchBarContainer from './search_bar_container';
 
 class Header extends React.Component{
@@ -20,7 +21,10 @@ class Header extends React.Component{
           <h2>TENSE</h2>
         </NavLink>
         <SearchBarContainer pathName={this.props.pathName} history={this.props.history} />
-        <button onClick={this.handleLogout}>Log Out</button>
+        <div className="header-right">
+          <LinksTab />
+          <button onClick={this.handleLogout}>Log Out</button>
+        </div>
       </div>
     )
   }
