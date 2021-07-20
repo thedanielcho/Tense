@@ -78,9 +78,19 @@ this.subscription = App.cable.subscriptions.create(
 ```
 
 ### Channels
-- Create channels for topics you want to discuss!
+- Create or join channels for topics you want to discuss!
 <br></br>
 ![messaging](/app/assets/images/readme/channel_creation.gif)
+
+### Direct Messages
+- Message users directly in a private direct message that only you two can see!
+<br></br>
+![messaging](/app/assets/images/readme/dm.gif)
+
+### Search
+- Look up channels or users with ease!
+- <br></br>
+![messaging](/app/assets/images/readme/search.gif)
 
 [Try it out!](https://tense-app.herokuapp.com/#/)
 
