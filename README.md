@@ -89,7 +89,7 @@ this.subscription = App.cable.subscriptions.create(
 
 ### Search
 - Look up channels or users with ease!
-- <br></br>
+<br></br>
 ![messaging](/app/assets/images/readme/search.gif)
 
 [Try it out!](https://tense-app.herokuapp.com/#/)
