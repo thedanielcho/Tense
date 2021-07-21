@@ -44,7 +44,7 @@ class SplashFooter extends React.Component{
               <a href="tel:+2019161683">201-916-1683</a>
             </li>
             <li>
-              <a href="mailto:thedanielcho@gmail.com">thedanielcho@gmail.com</a>
+              <a href="mailto:thedanielcho@gmail.com" target="_blank">thedanielcho@gmail.com</a>
             </li>
           </ul>
         </div>
