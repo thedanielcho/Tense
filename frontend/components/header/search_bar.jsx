@@ -18,7 +18,6 @@ class SearchBar extends React.Component{
 
   handleInput(e){
     if(e.target.value.length > 0){
-      debugger
       this.setState({
         input: e.target.value,
         active: true
@@ -46,7 +45,6 @@ class SearchBar extends React.Component{
     splitPath[1] = "channel"
     splitPath[2] = id;
     let redirectPath = splitPath.join("/");
-    debugger
     this.props.history.push(redirectPath);
     this.props.requestMemberships(id);
   }

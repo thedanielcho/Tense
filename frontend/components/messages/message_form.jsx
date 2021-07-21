@@ -33,7 +33,6 @@ class MessageForm extends React.Component{
   }
 
   render(){
-    debugger
     let placeholder = this.props.channel ? this.props.channel.name : Object.values(this.props.directMessage.users)[0].displayName
     return(
       <div>

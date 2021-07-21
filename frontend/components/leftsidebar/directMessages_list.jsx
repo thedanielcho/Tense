@@ -29,6 +29,7 @@ class DirectMessagesList extends React.Component{
             directMessage={directMessage}
             pathName={this.props.pathName}
             handleRedirect={this.props.handleRedirect}
+            currentUser={this.props.currentUser}
             />
         })}
       </ul> : <></>

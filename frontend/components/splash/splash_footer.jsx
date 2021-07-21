@@ -38,7 +38,7 @@ class SplashFooter extends React.Component{
           </h2>
           <ul>
             <li>
-              <a href="thedanielcho.com">Daniel Cho</a>
+              <a href="https://thedanielcho.com">Daniel Cho</a>
             </li>
             <li>
               <a href="tel:+2019161683">201-916-1683</a>

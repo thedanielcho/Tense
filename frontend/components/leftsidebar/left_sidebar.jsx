@@ -45,6 +45,7 @@ class LeftSidebar extends React.Component{
             directMessages={this.props.directMessages}
             pathName={this.props.pathName}
             handleRedirect={this.handleRedirect}
+            currentUser={this.props.currentUser}
           />
         </ul>
       </div>

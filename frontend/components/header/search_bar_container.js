@@ -4,7 +4,6 @@ import { requestMemberships } from "../../actions/membership_actions"
 import SearchBar from "./search_bar"
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   return {
     users: state.entities.users,
     channels: state.entities.channels,
