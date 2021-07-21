@@ -19,7 +19,6 @@ class DirectMessagesListItem extends React.Component{
       && this.props.pathName.split("/")[1] === "dm"
       ) ? 'active' : '';
     if(this.props.currentUser){
-      debugger
     }
     let name = Object.values(this.props.directMessage.users)[0].id === this.props.currentUser.id ?
     Object.values(this.props.directMessage.users)[1].displayName : Object.values(this.props.directMessage.users)[0].displayName
