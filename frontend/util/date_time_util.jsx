@@ -29,9 +29,10 @@ export const extractDateTime = dateTime => {
     (now.getMonth() === dateObj.getMonth()) && 
     (now.getFullYear() === dateObj.getFullYear())) || 
     ((now.getDate() - dateObj.getDate() < 1)) &&
-    (now.getMonth() - dateObj.getMonth() === 1) && 
+    (now.getMonth() === dateObj.getMonth()) && 
     (now.getFullYear() === dateObj.getFullYear())
   ) { 
+    debugger
     return `yesterday at ${time}`;
   }
 
