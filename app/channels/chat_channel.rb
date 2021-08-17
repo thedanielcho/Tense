@@ -16,7 +16,13 @@ class ChatChannel < ApplicationCable::Channel
     elsif data["type"] == "edit"
       @message = Message.find(data["message"]["id"])
       @message.body = data["message"]["body"]
+      # debugger
+      if !@message.edited?
+        @message.toggle!(:edited?)
+      end
+      # debugger
       @message.save
+      # debugger
     end
     socket = { 
       message: {
@@ -25,7 +31,8 @@ class ChatChannel < ApplicationCable::Channel
       body: @message.body,
       messageableId: @message.messageable_id,
       messageableType: @message.messageable_type,
-      createdAt: @message.created_at
+      createdAt: @message.created_at,
+      edited: @message.edited?
       }
     }
     ChatChannel.broadcast_to(@chat, socket)

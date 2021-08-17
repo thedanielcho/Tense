@@ -118,7 +118,7 @@ class ChatRoom extends React.Component{
                   <FontAwesomeIcon icon={faTrashAlt} />
                 </div> : <></>
                 let editButton = (this.props.currentUser.id === message.userId) ?
-                <div className="delete-button" onClick={() => this.startEdit(message.id)}>
+                <div className="edit-button" onClick={() => this.startEdit(message.id)}>
                   <FontAwesomeIcon icon={faEdit} />
                 </div> : <></>
                 debugger
@@ -157,8 +157,8 @@ class ChatRoom extends React.Component{
                       </div>
                     </div>
                     <div className="message-buttons">
-                      {deleteButton}
                       {editButton}
+                      {deleteButton}
                     </div>
                   </li>
                 )

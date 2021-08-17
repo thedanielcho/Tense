@@ -48,9 +48,14 @@ class MessageEditForm extends React.Component{
             value={this.state.body}
             autoComplete="off"
           />
-          <button type="submit" className="submit">
-            <FontAwesomeIcon icon={faCaretSquareRight} />
-          </button>
+          <div>
+            <button type="submit" className="submit">
+              Save
+            </button>
+            <button onClick={this.props.finishEdit} className="cancel">
+              Cancel
+            </button>
+          </div>
         </form>
       </div>
     )

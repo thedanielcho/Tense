@@ -31,6 +31,7 @@
 
     .message-container{
       padding-left: 15px;
+      // max-width: calc(100vh - 455px);
     }
 
     .name-and-date{
@@ -50,9 +51,20 @@
     }
     p{
       padding: 3px;
+      span{
+        font-size: 11px;
+        padding: 5px;
+        color: #c0a4d2;
+      }
     }
-    .delete-button{
-      display: none;
+    .message-buttons{
+      display: flex;
+      .delete-button{
+        display: none;
+      }
+      .edit-button{
+        display: none;
+      }
     }
   
   }
@@ -71,9 +83,80 @@
       font-style: italic;
       padding: 3px;
     }
+    .edit-button{
+      display: block;
+      cursor: pointer;
+      color: #c0a4d2;
+      font-size: 18px;
+      font-style: italic;
+      padding: 3px;
+      padding-right: 7px;
+    }
+    .message-edit-form{
+      background-color: grey;
+    }
   }
-
   
+}
+
+.message-edit-form{
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  padding-top: 15px;
+  background-color: rgb(58, 56, 59);
+  input{
+    width: calc(55vw);
+    grid-column: 2 / 2;
+    color: white;
+    height: 25px;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 3px;
+    border: 2px solid gray;
+    background-color: rgb(58, 56, 59)
+  }
+  div{
+    padding-top: 5px;
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    button{
+      width: 70px;
+      border: 1px solid #565656;
+      height: 30px;
+      background-color: #302735;
+      color: white;
+      border-radius: 5px;
+    }
+    button:hover{
+      background-color: rgb(135, 82, 151);
+    }
+  }
+}
+
+@media (min-width: 1300px) and (max-width: 1520px){
+  .message-edit-form{
+    input{
+      width: calc(60vw);
+    }
+  }
+}
+
+@media (min-width: 1520px) and (max-width: 1750px){
+  .message-edit-form{
+    input{
+      width: calc(63vw);
+    }
+  }
+}
+
+@media (min-width: 1750px){
+  .message-edit-form{
+    input{
+      width: calc(65vw);
+    }
+  }
 }
 
 .message-form{
