@@ -135,29 +135,6 @@
   }
 }
 
-@media (min-width: 1300px) and (max-width: 1520px){
-  .message-edit-form{
-    input{
-      width: calc(60vw);
-    }
-  }
-}
-
-@media (min-width: 1520px) and (max-width: 1750px){
-  .message-edit-form{
-    input{
-      width: calc(63vw);
-    }
-  }
-}
-
-@media (min-width: 1750px){
-  .message-edit-form{
-    input{
-      width: calc(65vw);
-    }
-  }
-}
 
 .message-form{
   align-items: center;

@@ -196,7 +196,41 @@
       }
     }
 
+    .message-edit-form{
+      input{
+        width: calc(70vw);
+      }
+    }
+
+
+    @media (min-width: 1300px) and (max-width: 1520px){
+      .message-edit-form{
+        input{
+          width: calc(75vw);
+        }
+      }
+    }
+
+
+    
+    @media (min-width: 1520px) and (max-width: 1750px){
+      .message-edit-form{
+        input{
+          width: calc(78vw);
+        }
+      }
+    }
+    
+    @media (min-width: 1750px){
+      .message-edit-form{
+        input{
+          width: calc(80vw);
+        }
+      }
+    }
   }
+
+  
 
   .thin{
     grid-column: 1;
@@ -204,6 +238,31 @@
 
   .wide{
     grid-column: 1 / span 2;
+
+
+    @media (min-width: 1750px){
+      .message-edit-form{
+        input{
+          width: calc(80vw);
+        }
+      }
+    }
+    @media (min-width: 1520px) and (max-width: 1750px){
+      .message-edit-form{
+        input{
+          width: calc(78vw);
+        }
+      }
+    }
+
+    @media (min-width: 1520px) and (max-width: 1750px){
+      .message-edit-form{
+        input{
+          width: calc(78vw);
+        }
+      }
+    }
+
   }
   
 

@@ -25,6 +25,10 @@ class MessageEditForm extends React.Component{
     
     e.preventDefault();
     if(this.state.body !== ""){
+      if(this.state.body === this.props.message.body){
+        this.props.finishEdit();
+        return
+      }
       debugger
       this.props.message.body = this.state.body
       const message = this.props.message;
