@@ -3,12 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretSquareRight } from '@fortawesome/free-solid-svg-icons'
 import snakifyObject from '../../util/snakify_util';
 
-class MessageForm extends React.Component{
+class MessageEditForm extends React.Component{
   constructor(props){
+    debugger
     super(props);
     this.state = {
-      body: "",
-      userId: this.props.currentUser.id
+      body: this.props.message.body,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -25,10 +25,13 @@ class MessageForm extends React.Component{
     
     e.preventDefault();
     if(this.state.body !== ""){
-      const message = Object.assign({}, this.state);
+      debugger
+      this.props.message.body = this.state.body
+      const message = this.props.message;
       const snakeMessage = snakifyObject(message);
-      this.props.subscription.speak(({ message: snakeMessage, type: "create" }));;
+      this.props.subscription.speak(({ message: snakeMessage, type: "edit" }));;
       this.setState({ body: "" });
+      this.props.finishEdit()
     }
   }
 
@@ -36,7 +39,7 @@ class MessageForm extends React.Component{
     let placeholder = this.props.channel ? this.props.channel.name : Object.values(this.props.directMessage.users)[0].displayName
     return(
       <div>
-        <form className="message-form" onSubmit={this.handleSubmit}>
+        <form className="message-edit-form" onSubmit={this.handleSubmit}>
           <input
             type="text"
             id="message"
@@ -54,4 +57,4 @@ class MessageForm extends React.Component{
   }
 }
 
-export default MessageForm
+export default MessageEditForm

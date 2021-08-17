@@ -3,14 +3,19 @@ import { extractDateTime } from "../../util/date_time_util";
 import { extractDate } from "../../util/date_util";
 import MessageForm from "./message_form";
 import MessageListItem from "./message_list_item";
+import MessageEditForm from "./message_edit_form";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons'
 
 class ChatRoom extends React.Component{
   constructor(props){
     super(props);
-    this.state = {newMessages: 0 };
+    this.state = {
+      newMessages: 0,
+      editing: false
+    };
     this.bottom = React.createRef();
+    this.finishEdit = this.finishEdit.bind(this);
   }
 
   componentDidMount(){
@@ -67,7 +72,22 @@ class ChatRoom extends React.Component{
     }
   }
 
+  startEdit(messageId){
+    debugger
+    this.setState({
+      editing: messageId
+    })
+  }
+
+  finishEdit(){
+    debugger
+    this.setState({
+      editing: false
+    })
+  }
+
   render(){
+
     let lastUser;
     let lastDate;
     
@@ -97,20 +117,52 @@ class ChatRoom extends React.Component{
                 <div className="delete-button" onClick={() => this.props.openModal('messageDelete', message)}>
                   <FontAwesomeIcon icon={faTrashAlt} />
                 </div> : <></>
+                let editButton = (this.props.currentUser.id === message.userId) ?
+                <div className="delete-button" onClick={() => this.startEdit(message.id)}>
+                  <FontAwesomeIcon icon={faEdit} />
+                </div> : <></>
+                debugger
+                let editedTag = (message.edited) ?
+                <span className="edited">(edited)</span> : <></>
+
+                if(this.state.editing === message.id){
+                  debugger
+                  return(
+                  <li key={message.id} className={className}>
+                    <div className="message-avatar">
+                      {img}
+                      <div className="message-container">
+                        <MessageEditForm 
+                          channel={this.props.channel}
+                          subscription={this.subscription}
+                          currentUser={this.props.currentUser}
+                          message={message}
+                          finishEdit={this.finishEdit}
+                        />
+                        <div ref={this.bottom} />
+                      </div>
+                    </div>
+                  </li>
+                  )    
+                }
+
                 return (
                   <li key={message.id} className={className}>
                     <div className="message-avatar">
                       {img}
                       <div className="message-container">
                         {user}
-                        <p>{message.body}</p>
+                        <p>{message.body}{editedTag}</p>
                         <div ref={this.bottom} />
                       </div>
                     </div>
-                    {deleteButton}
+                    <div className="message-buttons">
+                      {deleteButton}
+                      {editButton}
+                    </div>
                   </li>
                 )
-                
+
               }
             })}
           </ul>

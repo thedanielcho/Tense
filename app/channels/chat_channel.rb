@@ -6,12 +6,18 @@ class ChatChannel < ApplicationCable::Channel
     stream_for @chat if @chat
   end
   def speak(data)
-    @message = Message.create(
-      body: data["message"]["body"],
-      user_id: data["message"]["user_id"],
-      messageable_id: @chat.id,
-      messageable_type: @chat_type
-    )
+    if data["type"] == "create"
+      @message = Message.create(
+        body: data["message"]["body"],
+        user_id: data["message"]["user_id"],
+        messageable_id: @chat.id,
+        messageable_type: @chat_type
+      )
+    elsif data["type"] == "edit"
+      @message = Message.find(data["message"]["id"])
+      @message.body = data["message"]["body"]
+      @message.save
+    end
     socket = { 
       message: {
       id: @message.id,
