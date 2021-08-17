@@ -16,13 +16,10 @@ class ChatChannel < ApplicationCable::Channel
     elsif data["type"] == "edit"
       @message = Message.find(data["message"]["id"])
       @message.body = data["message"]["body"]
-      # debugger
       if !@message.edited?
         @message.toggle!(:edited?)
       end
-      # debugger
       @message.save
-      # debugger
     end
     socket = { 
       message: {

@@ -73,14 +73,13 @@ class ChatRoom extends React.Component{
   }
 
   startEdit(messageId){
-    debugger
+  
     this.setState({
       editing: messageId
     })
   }
 
   finishEdit(){
-    debugger
     this.setState({
       editing: false
     })

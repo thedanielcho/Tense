@@ -5,7 +5,6 @@ import snakifyObject from '../../util/snakify_util';
 
 class MessageEditForm extends React.Component{
   constructor(props){
-    debugger
     super(props);
     this.state = {
       body: this.props.message.body,
@@ -29,7 +28,6 @@ class MessageEditForm extends React.Component{
         this.props.finishEdit();
         return
       }
-      debugger
       this.props.message.body = this.state.body
       const message = this.props.message;
       const snakeMessage = snakifyObject(message);
