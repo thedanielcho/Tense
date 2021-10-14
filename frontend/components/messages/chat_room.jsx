@@ -120,12 +120,10 @@ class ChatRoom extends React.Component{
                 <div className="edit-button" onClick={() => this.startEdit(message.id)}>
                   <FontAwesomeIcon icon={faEdit} />
                 </div> : <></>
-                debugger
                 let editedTag = (message.edited) ?
                 <span className="edited">(edited)</span> : <></>
 
                 if(this.state.editing === message.id){
-                  debugger
                   return(
                   <li key={message.id} className={className}>
                     <div className="message-avatar">
